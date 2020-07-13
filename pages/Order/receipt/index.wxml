@@ -1,6 +1,6 @@
 <scroll-view scroll-y class="scrollPage">
 	<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
-		<view slot="backText">电子存单</view>
+		<view slot="backText">电子存单11111</view>
 	</cu-custom>
 	<view  class="cu-custom">
 	<view class="bg-white cu-tabbar-height fixed ">
