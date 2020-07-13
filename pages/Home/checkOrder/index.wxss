@@ -1,0 +1,40 @@
+@import "/colorui/coupon.wxss";
+.kf_button{
+  padding: 0px 0px;
+  background-color: rgb(255, 255, 255);
+  width: 100rpx;
+  height: 100rpx;
+  left:80%;
+  border-radius: 50%;
+  bottom: 230rpx;
+  position: fixed;
+ }
+.kf_button:not([size='mini']){
+  width:  100rpx;
+}
+ .kf_image{
+  z-index: 9999;
+  width: 100rpx;
+  height: 100rpx;
+ }
+ .nickname_placeholder, .nickname_input {
+  text-align: right;
+}
+.cu-dialog1 {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: auto;
+	margin-right: auto;
+	width: 450rpx;
+	max-width: 100%;
+	background-color: #f8f8f8;
+	border-radius: 10rpx;
+	overflow: hidden;
+}
+
+
+.rich-text-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+}

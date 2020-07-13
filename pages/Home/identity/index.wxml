@@ -1,0 +1,32 @@
+<view class="cu-custom " style="height:{{CustomBar}}px">
+	<view class="cu-bar bg-white fixed {{bgImage!=''?'none-bg  bg-img':''}} {{bgColor}}" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;{{bgImage?'background-image:url(' + bgImage+')':''}}">
+		<cu-custom isBack="{{true}}">
+			<view slot="backText">身份认证</view>
+			<!-- <view slot="content">我的优惠</view> -->
+		</cu-custom>
+	</view>
+</view>
+<view class="bg text-white text-xl padding">
+	<view class="flex justify-center align-center margin-top"><text class="cuIcon-infofill"></text>根据政策要求</view>
+	<view class="flex justify-center margin-top-sm">线上物流下单需要先完成实名认真</view>
+</view>
+<view class="bg-white" style="border-radius:10px;margin-top:-10px">
+	<form bindsubmit="formSumbit">
+		<view class="flex justify-between align-cnenter padding bg-white  margin-lr-sm" style="border-bottom:1px solid #eee">
+			<view>姓名</view>
+			<input class="nickname_input" placeholder-class="nickname_placeholder" name="name" placeholder="请输入身份证姓名" />
+		</view>
+
+		<view class="flex justify-between padding bg-white margin-lr-sm " style="border-bottom:1px solid #eee">
+			<view>身份证号码</view>
+			<input class="nickname_input" placeholder-class="nickname_placeholder" type="idcard" name="idNumber" placeholder="请输入身份证号码" />
+		</view>
+		<view class="flex justify-between padding bg-white margin-lr-sm " style="border-bottom:1px solid #eee">
+			<view>单位名称</view>
+			<input class="nickname_input" placeholder-class="nickname_placeholder" placeholder="单位名称(选填)" name="company"></input>
+		</view>
+		<view class="flex justify-center padding margin-top" style="width:100%">
+			<button  class="btn" form-type="submit">完成认证</button>
+		</view>
+	</form>
+</view>

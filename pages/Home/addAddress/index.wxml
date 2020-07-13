@@ -1,0 +1,51 @@
+<view class="cu-custom" style="background:#2f70df;height:{{CustomBar}}px">
+	<view class="cu-bar fixed {{bgImage!=''?'none-bg text-white bg-img':''}} {{bgColor}}" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;{{bgImage?'background-image:url(' + bgImage+')':''}}">
+		<cu-custom isBack="{{true}}">
+			<view slot="backText">新增地址</view>
+			<!-- <view slot="content">我的优惠</view> -->
+		</cu-custom>
+	</view>
+</view>
+
+<form bindsubmit="formSumbit">
+	<view class="margin-xs padding-sm text-bold text-xl">
+		联系人信息
+	</view>
+	<view class="margin-xs padding-sm flex align-center" style="border-bottom:1px solid #eee">
+		<input name="name" placeholder="真实姓名"></input>
+		<input name="phoneNumber" placeholder="电话"></input>
+	</view>
+	<view class="margin-xs padding-sm flex align-center" style="border-bottom:1px solid #eee">
+		<view class="section">
+			<picker mode="region" name="address" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+				<view class="picker">{{region[0]}}/{{region[1]}}/{{region[2]}}</view>
+			</picker>
+		</view>
+	</view>
+	<view class="margin-xs padding-sm flex" style="border-bottom:1px solid #eee">
+		<textarea style="height:150rpx;margin-top:5rpx" placeholder="街道、楼牌号等" name="addressDetail"></textarea>
+	</view>
+
+	<view class="margin-sm padding-sm flex align-center" style="border-bottom:1px solid #eee">
+		<input placeholder="公司名称(选填)" name="company"></input>
+	</view>
+	<view class="margin-sm padding-sm flex align-center" style="border-bottom:1px solid #eee">
+		<view style="width:130rpx">标签</view>
+		<view class="cu-tag line-gray radius ">公司</view>
+		<view class="cu-tag line-gray radius ">家</view>
+		<view class="cu-tag line-gray radius">学校</view>
+	</view>
+	<view class="flex justify-between padding-sm align-center">
+		<view class="flex align-center">
+			<view class="text-lg ">
+				<text class="text-red cuIcon-roundcheckfill"></text>
+			</view>
+			<text class="text-gray margin-left-xs">设置默认寄件地址</text>
+		</view>
+		<view>清空当前信息</view>
+	</view>
+
+	<view class="cu-bar foot tar bg-white">
+		<button class="cu-btn round   bg-red" form-type="submit">确定</button>
+	</view>
+</form>

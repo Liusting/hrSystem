@@ -1,0 +1,4 @@
+/* pages/Home/addAddress/index.wxss */
+page{
+background-color: white;
+}

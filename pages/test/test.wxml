@@ -1,0 +1,28 @@
+<!--地图容器-->
+<view style="margin-top:200rpx">
+
+</view>
+<view class="justify-start ">
+	<view class="" style="margin-top:100px;width:100%">
+		<view class="bg-white col-3 grid flex  padding" style="  border-bottom: 1px solid #f1f1f1">
+			<view class="text-gray">取消</view>
+			<view class="text-center text-xl">期望上门时间</view>
+			<view class="text-right text-red">确定</view>
+		</view>
+		<view class="flex">
+			<view style="height:auto;width:100%">
+				<view data-index="{{index}}" bindtap="timeClick12" class=" {{currentTab==index?'text-red bg-white':''}}" wx:for="{{multiArray[0]}}" wx:key="{{index}}">
+					<view class="padding flex justify-center">{{item}}</view>
+				</view>
+			</view>
+			<scroll-view class='bg-white' scroll-y style="width:100%">
+				<view>
+					<view bindtap="hourClick12" class="padding-sm justify-between flex align-center" wx:for="{{multiArray[1]}}" wx:key="{{index}}" data-index="{{index}}" data-item="{{item}}">
+						<text class="{{hourIndex1==index?'text-red':''}}">{{item}}</text>
+						<text class="text-red text-xl cuIcon-{{hourIndex1==index?'roundcheckfill':''}}"></text>
+					</view>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+</view>

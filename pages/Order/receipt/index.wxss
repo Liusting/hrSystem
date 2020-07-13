@@ -1,0 +1,16 @@
+/* pages/Order/receipt/index.wxss */
+/* page{
+  background-color: white;
+} */
+.on{
+  border-bottom: 2px solid red;
+}
+.rich-text {
+  width: 700rpx;
+  padding: 25rpx 0;
+}
+
+.rich-text-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+}

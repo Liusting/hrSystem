@@ -1,0 +1,7 @@
+/* pages/Home/serviceAddress/index.wxss */
+.image {
+  border-bottom-left-radius: 7px;
+  border-top-left-radius: 7px;
+  width: 220rpx;
+  height: 100%
+}

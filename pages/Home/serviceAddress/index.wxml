@@ -1,0 +1,40 @@
+<view class="cu-custom" style="background:#2f70df;height:{{CustomBar}}px">
+	<view class="cu-bar fixed {{bgImage!=''?'none-bg text-white bg-img':''}} {{bgColor}}" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;{{bgImage?'background-image:url(' + bgImage+')':''}}">
+		<cu-custom isBack="{{true}}">
+			<view slot="backText">服务站点</view>
+			<!-- <view slot="content">我的优惠</view> -->
+		</cu-custom>
+	</view>
+</view>
+
+<view wx:for="{{5}}">
+	<view class="flex bg-white margin-sm " style="border-radius:7px">
+		<view>
+			<image mode="aspectFill" class="image" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3532718517,1039554610&fm=26&gp=0.jpg"></image>
+		</view>
+		<view class="padding-sm" style="width:100%">
+			<view class="text-xl text-bold">深圳龙华清湖旗舰店</view>
+			<view class="flex justify-between text-gray align-center margin-top-sm">
+				<view>
+					<text class="cuIcon-timefill"></text>
+					<text>07:00-20:00</text>
+				</view>
+				<view>199m</view>
+			</view>
+			<view class="flex justify-between align-center margin-top-sm">
+				<view class="text-gray">
+					<text class="cuIcon-location"></text>
+					<text class="text-sm">龙华区民治街道布龙路特发和平</text>
+				</view>
+				<!-- <view class="text-xxl text-red">
+					<text class="cuIcon-phone"></text>
+				</view> -->
+				<view>
+					<image mode="aspectFill" style="width:50rpx;height:50rpx" src="https://img.alicdn.com/imgextra/i4/1073981443/O1CN01urZbB41MWw88nMDYk_!!1073981443.png"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+

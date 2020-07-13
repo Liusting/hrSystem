@@ -1,0 +1,183 @@
+<view class="cu-custom bg-white" style="height:{{CustomBar}}px">
+	<view class="cu-bar fixed {{bgImage!=''?'none-bg text-black bg-img':''}} {{bgColor}}" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+		<view class="margin-left text-xl text-bold">
+			<text>我的订单</text>
+		</view>
+	</view>
+</view>
+<view class="bg-white " style="border-top:1px solid #eee">
+	<view class="flex cu-tabbar-height text-center text-lg">
+		<view class="flex cu-tabbar-heightz justify-center align-center  flex-sub {{currtab == item.index ? 'text-red on text-bold' : ''}}" wx:for="{{swipertab}}" wx:key bindtap="tabSwitch" data-current="{{item.index}}">
+			{{item.name}}
+		</view>
+	</view>
+</view>
+<swiper current="{{currtab}}" class="swiper-box" duration="300" bindchange="tabChange" style="height:{{deviceH-CustomBar-55}}px">
+	<!-- 全部订单 -->
+	<swiper-item>
+		<scroll-view class="hot-box" scroll-y="true"  style="height:{{deviceH-CustomBar-55}}px">
+			<view wx:for="{{10}}" class="margin padding bg-white" style="border-radius:7px">
+				<view bindtap="orderDetail">
+					<view>订单编号:125648416874846</view>
+					<view class="margin-tb-lg col-3 grid">
+						<view class="text-center">
+							<view class="text-xl text-bold">佛山市</view>
+							<view>刘桂廷</view>
+						</view>
+						<view class="text-center">
+							<view>待取货</view>
+							<view>
+								<image mode="aspectFill" style="width:100rpx;height:50rpx" src="https://img.alicdn.com/imgextra/i3/1073981443/O1CN01xxMKrs1MWw87cyDjO_!!1073981443.png"></image>
+							</view>
+						</view>
+						<view class="text-center">
+							<view class="text-xl text-bold">东莞市</view>
+							<view>刘桂廷</view>
+						</view>
+					</view>
+					<view>待派送：货物已到达目的城市，配送小哥正在配送，请及时查看来电显示</view>
+					<view class="padding-tb-sm" style="border-bottom:1px solid #eee">下单时间:2020-05-27 09:52:41</view>
+					<view class="flex align-center justify-end margin-top-sm">
+						<view class="cu-tag line-gary round" bindtap="cancelOrder">取消订单</view>
+						<view class="cu-tag line-red round" bindtap="gotoReceipt">电子存单</view>
+					</view>
+				</view>
+			</view>
+			<view class=" cu-tabbar-height"></view>
+		</scroll-view>
+	</swiper-item>
+	<!-- 待接单 -->
+	<swiper-item>
+		<scroll-view class="hot-box" scroll-y="true"  style="height:{{deviceH-CustomBar-55}}px">
+			<view class="margin padding bg-white" style="border-radius:7px">
+				<view bindtap="orderDetail">
+					<view>订单编号:125648416874846</view>
+					<view class="margin-tb-lg col-3 grid">
+						<view class="text-center">
+							<view class="text-xl text-bold">佛山市</view>
+							<view>刘桂廷</view>
+						</view>
+						<view class="text-center">
+							<view>待接单</view>
+							<view>
+								<image mode="aspectFill" style="width:100rpx;height:50rpx" src="https://img.alicdn.com/imgextra/i3/1073981443/O1CN01xxMKrs1MWw87cyDjO_!!1073981443.png"></image>
+							</view>
+						</view>
+						<view class="text-center">
+							<view class="text-xl text-bold">东莞市</view>
+							<view>刘桂廷</view>
+						</view>
+					</view>
+					<view>待派送：货物已到达目的城市，配送小哥正在配送，请及时查看来电显示</view>
+					<view class="padding-tb-sm" style="border-bottom:1px solid #eee">下单时间:2020-05-27 09:52:41</view>
+					<view class="flex align-center justify-end margin-top-sm">
+						<view class="cu-tag line-gary round" bindtap="cancelOrder">取消订单</view>
+						<view class="cu-tag line-red round" bindtap="gotoReceipt">电子存单</view>
+					</view>
+				</view>
+			</view>
+			<view class=" cu-tabbar-height"></view>
+		</scroll-view>
+	</swiper-item>
+
+	<!-- 待取货 -->
+	<swiper-item>
+		<scroll-view class="hot-box" scroll-y="true"  style="height:{{deviceH-CustomBar-55}}px">
+			<view class="margin padding bg-white" style="border-radius:7px">
+				<view bindtap="orderDetail">
+					<view>订单编号:125648416874846</view>
+					<view class="margin-tb-lg col-3 grid">
+						<view class="text-center">
+							<view class="text-xl text-bold">佛山市</view>
+							<view>刘桂廷</view>
+						</view>
+						<view class="text-center">
+							<view>待取货</view>
+							<view>
+								<image mode="aspectFill" style="width:100rpx;height:50rpx" src="https://img.alicdn.com/imgextra/i3/1073981443/O1CN01xxMKrs1MWw87cyDjO_!!1073981443.png"></image>
+							</view>
+						</view>
+						<view class="text-center">
+							<view class="text-xl text-bold">东莞市</view>
+							<view>刘桂廷</view>
+						</view>
+					</view>
+					<view>待派送：货物已到达目的城市，配送小哥正在配送，请及时查看来电显示</view>
+					<view class="padding-tb-sm" style="border-bottom:1px solid #eeee">下单时间:2020-05-27 09:52:41</view>
+					<view class="flex align-center justify-end margin-top-sm">
+						<view class="cu-tag line-red round">联系司机</view>
+						<view class="cu-tag line-red round">联系客服</view>
+						<view class="cu-tag line-red round" bindtap="gotoReceipt">电子存单</view>
+					</view>
+				</view>
+			</view>
+			<view class=" cu-tabbar-height"></view>
+		</scroll-view>
+	</swiper-item>
+	<!-- 待发货 -->
+	<swiper-item>
+		<scroll-view class="hot-box" scroll-y="true"  style="height:{{deviceH-CustomBar-55}}px">
+			<view class="margin padding bg-white" style="border-radius:7px">
+				<view bindtap="orderDetail">
+					<view>订单编号:125648416874846</view>
+					<view class="margin-tb-lg col-3 grid">
+						<view class="text-center">
+							<view class="text-xl text-bold">佛山市</view>
+							<view>刘桂廷</view>
+						</view>
+						<view class="text-center">
+							<view>待发货</view>
+							<view>
+								<image mode="aspectFill" style="width:100rpx;height:50rpx" src="https://img.alicdn.com/imgextra/i3/1073981443/O1CN01xxMKrs1MWw87cyDjO_!!1073981443.png"></image>
+							</view>
+						</view>
+						<view class="text-center">
+							<view class="text-xl text-bold">东莞市</view>
+							<view>刘桂廷</view>
+						</view>
+					</view>
+					<view>待派送：货物已到达目的城市，配送小哥正在配送，请及时查看来电显示</view>
+					<view class="padding-tb-sm" style="border-bottom:1px solid #eee">下单时间:2020-05-27 09:52:41</view>
+				</view>
+				<view class="flex align-center justify-end margin-top-sm">
+					<view class="cu-tag line-red round">联系客服</view>
+					<view class="cu-tag line-red round" bindtap="gotoReceipt">电子存单</view>
+				</view>
+			</view>
+			<view class=" cu-tabbar-height"></view>
+		</scroll-view>
+	</swiper-item>
+	<!-- 待派送 -->
+	<swiper-item>
+		<scroll-view class="hot-box" scroll-y="true"  style="height:{{deviceH-CustomBar-55}}px">
+			<view class="margin padding bg-white" style="border-radius:7px">
+				<view bindtap="orderDetail">
+					<view>订单编号:125648416874846</view>
+					<view class="margin-tb-lg col-3 grid">
+						<view class="text-center">
+							<view class="text-xl text-bold">佛山市</view>
+							<view>刘桂廷</view>
+						</view>
+						<view class="text-center">
+							<view>待派送</view>
+							<view>
+								<image mode="aspectFill" style="width:100rpx;height:50rpx" src="https://img.alicdn.com/imgextra/i3/1073981443/O1CN01xxMKrs1MWw87cyDjO_!!1073981443.png"></image>
+							</view>
+						</view>
+						<view class="text-center">
+							<view class="text-xl text-bold">东莞市</view>
+							<view>刘桂廷</view>
+						</view>
+					</view>
+					<view>待派送：货物已到达目的城市，配送小哥正在配送，请及时查看来电显示</view>
+					<view class="padding-tb-sm" style="border-bottom:1px solid #eee">下单时间:2020-05-27 09:52:41</view>
+					<view class="flex align-center justify-end margin-top-sm">
+						<view class="cu-tag line-red round">联系客服</view>
+						<view class="cu-tag line-red round" bindtap="gotoReceipt">电子存单</view>
+					</view>
+				</view>
+			</view>
+			<view class=" cu-tabbar-height"></view>
+		</scroll-view>
+	</swiper-item>
+</swiper>

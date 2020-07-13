@@ -1,0 +1,4 @@
+/* pages/Home/addressList/index.wxss */
+.on{
+  border-bottom: 2px solid red;
+}

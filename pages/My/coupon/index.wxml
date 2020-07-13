@@ -1,0 +1,162 @@
+<view class="cu-custom" style="background:#2f70df;height:{{CustomBar}}px">
+	<view class="cu-bar fixed {{bgImage!=''?'none-bg text-white bg-img':''}} {{bgColor}}" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;{{bgImage?'background-image:url(' + bgImage+')':''}}">
+		<cu-custom isBack="{{true}}">
+			<view slot="backText">优惠券</view>
+			<!-- <view slot="content">我的优惠</view> -->
+		</cu-custom>
+	</view>
+</view>
+
+<view class="bg-white cu-tabbar-height">
+	<view class="flex text-center text-lg">
+		<view class="cu-tabbar-height flex justify-center align-center  flex-sub {{currtab == item.index ? 'text-red on text-bold' : ''}}" wx:for="{{swipertab}}" wx:key bindtap="tabSwitch" data-current="{{item.index}}">
+			{{item.name}}
+		</view>
+	</view>
+</view>
+
+
+
+<swiper current="{{currtab}}" class="swiper-box" duration="300" bindchange="tabChange" style="height:{{deviceH-CustomBar-55}}px">
+	<!-- 优惠卷未使用 -->
+	<swiper-item>
+		<scroll-view class="hot-box" scroll-y="true" style="height:{{deviceH-CustomBar-55}}px">
+			<!-- <view class="search_no" wx:if="{{!allOrder.length}}">
+				<view class="font_14">
+					<image class="scimg" src="/images/person/search_no.png"></image>
+				</view>
+				<text>没有可用优惠券/(ㄒoㄒ)/~~</text>
+			</view> -->
+			<view class="padding text-gray flex justify-center">
+				6张可用优惠券
+			</view>
+			<view wx:for="{{5}}" wx:key="ffff">
+				<view class="margin-sm">
+					<view class="wrapper">
+						<view class="content1 ">
+							<view class='padding '>
+								<view class="text-xl text-bold ">
+									新人满减券
+								</view>
+								<view class="text-sm padding-top-xs text-gray">
+									适用时间：2020/09/09-2020/09/29
+								</view>
+								<view class="text-sm flex justify-between padding-top-xs text-gray">
+									<view>使用说明</view>
+									<view class="flex" bindtap="explain">
+										<view class="cuIcon-{{flag?'unfold':'fold'}}"></view>
+									</view>
+								</view>
+								<view class="bg-white text-sm text-gray" wx:if="{{!flag}}" style="border-radius:7px">
+									<view>1.优惠券领取后7日内使用</view>
+									<view>2.满100可用</view>
+								</view>
+							</view>
+						</view>
+						<view class="split-line"></view>
+						<view class="tip  ">
+							<view>
+								<view class=" justify-end flex">
+									<view class="box">
+										<view class="box-con">
+											<view class="box-text bg-red">满减券</view>
+										</view>
+									</view>​
+								</view>
+								<view class="padding text-center">
+									<text class="text-price text-xxl text-bold text-red">10</text>
+									<view class="text-gray"> 满100元可用</view>
+									<view class="cu-tag bg-blue round margin-top-xs">立即使用</view>
+								</view>
+								<view>
+
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="cu-tabbar-height"></view>
+		</scroll-view>
+	</swiper-item>
+	<!-- 已使用 -->
+	<swiper-item>
+		<scroll-view class="hot-box" scroll-y="true" style="height:{{deviceH-CustomBar-55}}px">
+			<!-- <view class="search_no" wx:if="{{!allOrder.length}}">
+				<view class="font_14">
+					<image class="scimg" src="/images/person/search_no.png"></image>
+				</view>
+				<text>没有可用优惠券/(ㄒoㄒ)/~~</text>
+			</view> -->
+
+			<view wx:for="{{5}}" wx:key="ffff">
+				<view class="margin-sm">
+					<view class="wrapper">
+						<view class="content1">
+							<view class="box1">
+								<view class="jiaobiao">
+									<image style="height:170rpx;width:170rpx" mode="aspectFit" src="https://img.alicdn.com/imgextra/i3/1073981443/O1CN01m9axjq1MWw83gSMlM_!!1073981443.png"></image>
+								</view>
+							</view>
+							<view class='padding'>
+								<view class="text-lg text-bold ">
+									新人满减券
+								</view>
+								<view class="text-sm padding-top-xs text-gray">
+									适用时间：2020/09/09-2020/09/29
+								</view>
+								<view class="text-sm flex justify-between padding-top-xs text-gray">
+									<view>使用说明</view>
+									<view class="flex" bindtap="explain">
+										<view class="cuIcon-{{flag?'unfold':'fold'}}"></view>
+									</view>
+								</view>
+								<view class="bg-white text-sm text-gray" wx:if="{{!flag}}" style="border-radius:7px">
+									<view>1.优惠券领取后7日内使用</view>
+									<view>2.满100可用</view>
+								</view>
+							</view>
+						</view>
+						<view class="split-line"></view>
+						<view class="tip  ">
+							<view>
+								<view class=" justify-end flex">
+									<view class="box">
+										<view class="box-con">
+											<view class="box-text bg-grey">满减券</view>
+										</view>
+									</view>​
+								</view>
+								<view class="padding text-center">
+									<text class="text-price text-xxl text-red text-bold">10</text>
+									<view class="text-gray">满100元可用</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="cu-tabbar-height"></view>
+		</scroll-view>
+	</swiper-item>
+</swiper>
+
+<view class="bg-white cu-bar foot tar">
+	<button class="cu-btn bg-red round" bindtap="showModal" data-target="Modal">优惠券兑换</button>
+</view>
+
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+	<view class="cu-dialog bg-white">
+		<view class="cu-bar  justify-center">
+			<view class="content">优惠券兑换</view>
+		</view>
+		<view class="padding margin-sm bg-white" style="border:1px solid #eee">
+			<input placeholder="请输入优惠码"></input>
+		</view>
+		<view class="col-2 grid margin-top" style="border-top:1px solid #eee">
+			<view class="action padding" bindtap="hideModal">取消</view>
+			<view class="action padding text-orange" style="border-left:1px solid #eee">确定</view>
+		</view>
+
+	</view>
+</view>

@@ -1,0 +1,7 @@
+/* pages/Order/orderDetail/index.wxss */
+.message{
+  border-radius:7px;
+  margin-top:20px;
+  position:relative;
+
+}

@@ -1,0 +1,157 @@
+<scroll-view scroll-y class="scrollPage">
+	<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+		<view slot="backText">电子存单</view>
+	</cu-custom>
+	<view  class="cu-custom">
+	<view class="bg-white cu-tabbar-height fixed ">
+		<view class="flex text-center text-lg">
+			<view class="cu-tabbar-height flex justify-center align-center  flex-sub {{currtab == item.index ? 'text-red on text-bold' : ''}}" wx:for="{{swipertab}}" wx:key bindtap="tabSwitch" data-current="{{item.index}}">
+				{{item.name}}
+			</view>
+		</view>
+	</view>
+</view>
+	<view wx:if="{{currtab==0}}" class="padding flex margin-sm justify-center bg-white" style="border-radius:7px">
+		<view class="flex align-center">
+			<view class=" text-red text-xxl">
+				<text class="cuIcon-newshot"></text>
+			</view>
+			<view class="text-bold">待接单</view>
+		</view>
+	</view>
+
+	<view wx:if="{{currtab==0}}" class="flex margin-sm bg-white align-center padding  justify-between" style="border-radius:7px">
+		<view style="width:90%">
+			<view class="flex align-center " bindtap="sendPost">
+				<view class="cu-tag bg-red radius">
+					寄
+				</view>
+				<view class="margin-left">
+					<view wx:if="{{sendInfo.addresseeName==null}}">
+						<view class="text-bold">刘桂廷，18648840747</view>
+						<view class="text-sm text-gray margin-top-sm">广东省佛山市禅城区石湾街道12号</view>
+					</view>
+					<view wx:else>
+						<view class="text-bold">{{sendInfo.addresseeName}} {{sendInfo.phoneNumber}}</view>
+						<view class="text-sm text-gray margin-top-sm">{{sendInfo.provinceName}}{{sendInfo.cityName}}{{sendInfo.cityName}}{{sendInfo.addressdetail}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="flex align-center" style="padding-left:26rpx">
+				<view style="height:60rpx;width:1rpx;border-left:1px dashed #aaaaaa"></view>
+				<view class="margin-left" style="height:1rpx;width:100%;border-bottom:1px solid #eee;margin-left:30px"></view>
+				<view></view>
+			</view>
+			<view>
+				<view class="flex align-center " bindtap="receive">
+					<view class="cu-tag bg-blue radius">
+						收
+					</view>
+					<view class="margin-left">
+						<view wx:if="{{receiveInfo.addresseeName==null}}">
+							<view class="text-bold">刘桂廷，18648840747</view>
+							<view class="text-sm text-gray margin-top-sm">广东省佛山市禅城区石湾街道12号</view>
+						</view>
+						<view wx:else>
+							<view class="text-bold">{{receiveInfo.addresseeName}} {{receiveInfo.phoneNumber}}</view>
+							<view class="text-sm text-gray margin-top-sm">{{receiveInfo.provinceName}}{{receiveInfo.cityName}}{{receiveInfo.cityName}}{{receiveInfo.addressdetail}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view wx:if="{{currtab==0}}" class="margin-sm bg-white  padding-sm" style="border-radius:7px">
+		<view>
+			<view class="text-bold text-lg">物品信息</view>
+			<view class="flex justify-between align-center margin-tb-sm">
+				<text>寄件方式</text>
+				<text>上门取件</text>
+			</view>
+			<view class="flex justify-between align-center margin-tb-sm">
+				<text>物品类型</text>
+				<text>数码家电</text>
+			</view>
+			<view class="flex justify-between align-center margin-tb-sm">
+				<text>物品重量</text>
+				<text>200kg</text>
+			</view>
+			<view class="flex justify-between align-center margin-tb-sm">
+				<text>物品体积</text>
+				<text>10m³</text>
+			</view>
+			<view class="flex justify-between align-center margin-tb-sm">
+				<text>保价</text>
+				<text class="text-price">20000</text>
+			</view>
+			<view class="flex justify-between align-center margin-tb-sm">
+				<text>增值服务</text>
+				<text>冷链运输</text>
+			</view>
+			<view class="flex justify-between align-center margin-tb-sm">
+				<text>服务类型</text>
+				<text>专车直发</text>
+			</view>
+			<view class="flex justify-between align-center margin-tb-sm">
+				<text>备注</text>
+				<text>需要本人签收</text>
+			</view>
+		</view>
+	</view>
+	<view wx:if="{{currtab==0}}" class="margin-sm bg-white  padding-sm" style="border-radius:7px">
+		<view>
+			<view class="text-bold text-lg">费用明细</view>
+			<view class="flex justify-between align-center margin-tb-sm">
+				<text>基础配送费</text>
+				<text class="text-price">200.00</text>
+			</view>
+			<view class="flex justify-between align-center margin-tb-sm">
+				<text>平台服务</text>
+				<text class="text-price">200.00</text>
+			</view>
+			<view class="flex justify-between align-center margin-tb-sm">
+				<text>保价</text>
+				<text class="text-price">50.00</text>
+			</view>
+			<view class="flex justify-between align-center margin-tb-sm">
+				<text>增值服务费</text>
+				<text class="text-price">200.00</text>
+			</view>
+			<view class="flex justify-between align-center margin-tb-sm">
+				<text>使用优惠券</text>
+				<text >-<text class="text-price"></text>200.00</text>
+			</view>
+		</view>
+	</view>
+
+	<view wx:if="{{currtab==1}}">
+		<view class=" padding bg-white">
+			<view class="flex justify-between align-center margin-tb">
+				<text>订单号</text>
+				<text>472872844682786</text>
+			</view>
+			<view class="flex justify-between align-center margin-tb">
+				<text>甲方</text>
+				<text>广州流浪者速递快递有限公司</text>
+			</view>
+			<view class="flex justify-between align-center margin-tb">
+				<text>乙方</text>
+				<text>刘桂廷</text>
+			</view>
+		</view>
+		<view class="page-body">
+			<view class="page-section">
+				<view class="rich-text-wrp">
+					<rich-text nodes="{{html}}"></rich-text>
+				</view>
+			</view>
+		</view>
+	</view>
+
+
+	<view class="cu-bar foot tar bg-white" wx:if="{{currtab==0}}">
+		<button bindtap="expressDetail" class="cu-btn bg-red round">查看物流</button>
+	</view>
+	  <view class='cu-tabbar-height'></view>
+</scroll-view>

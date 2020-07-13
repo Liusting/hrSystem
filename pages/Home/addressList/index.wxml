@@ -1,0 +1,89 @@
+<view class="cu-custom" style="background:#2f70df;height:{{CustomBar}}px">
+	<view class="cu-bar fixed {{bgImage!=''?'none-bg text-white bg-img':''}} {{bgColor}}" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;{{bgImage?'background-image:url(' + bgImage+')':''}}">
+		<cu-custom isBack="{{true}}">
+			<view slot="backText">地址簿</view>
+			<!-- <view slot="content">我的优惠</view> -->
+		</cu-custom>
+	</view>
+</view>
+
+<view class="bg-white cu-tabbar-height">
+	<view class="flex text-center text-lg">
+		<view class="cu-tabbar-height flex justify-center align-center  flex-sub {{currtab == item.index ? 'text-red on text-bold' : ''}}" wx:for="{{swipertab}}" wx:key bindtap="tabSwitch" data-current="{{item.index}}">
+			{{item.name}}
+		</view>
+	</view>
+</view>
+
+<swiper current="{{currtab}}" class="swiper-box" duration="300" bindchange="tabChange" style="height:{{deviceH-CustomBar-55}}px">
+	<swiper-item>
+		<scroll-view scroll-y style="height:{{deviceH-CustomBar-55}}px">
+			<view wx:for="{{addressList}}" wx:key="item.id">
+				<view class="bg-white margin " style="border-radius:7px">
+					<view class="padding-sm" style="line-height:45rpx" bindtap="selectAddress" data-item="{{item}}">
+						<view class="text-lg text-bold">{{item.addresseeName}} {{item.phoneNumber}}
+						</view>
+						<view class="margin-top-xs">广州博纳信息技术有限公司</view>
+						<view class="margin-top-xs">{{item.provinceName}}{{item.cityName}}{{item.cityName}}{{item.addressdetail}}</view>
+						<view class="margin-top-xs">
+							<text  class="cu-tag bg-orange radius xs">家</text>
+							<text  class="cu-tag bg-orange radius xs">公司</text>
+							<text  class="cu-tag bg-orange radius xs">寄件人</text>
+						</view>
+					</view>
+					<view class="margin-lr-sm" style="border-bottom:1px solid #eee;"></view>
+					<view class="flex justify-between align-center padding-sm">
+						<view class="flex align-center">
+							<view class="text-lg text-red">
+								<text class=" cuIcon-{{item.check?'roundcheckfill':'round'}}"></text>
+							</view>
+							<text>设置默认寄件地址</text>
+						</view>
+						<view>
+							<text class="margin-right cuIcon-write"><text class="margin-left-xs">编辑</text></text>
+							<text><text class="cuIcon-delete"></text><text class="margin-left-xs">删除</text></text>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class='cu-tabbar-height'></view>
+		</scroll-view>
+	</swiper-item>
+	<swiper-item>
+		<scroll-view scroll-y style="height:{{deviceH-CustomBar-55}}px">
+			<view wx:for="{{addressList}}" wx:key="item.id">
+				<view class="bg-white margin " style="border-radius:7px">
+					<view class="padding-sm" style="line-height:45rpx" bindtap="selectAddress" data-item="{{item}}">
+						<view class="text-lg text-bold">{{item.addresseeName}} {{item.phoneNumber}}
+						</view>
+						<view class="margin-top-xs">广州博纳信息技术有限公司</view>
+						<view class="margin-top-xs">{{item.provinceName}}{{item.cityName}}{{item.cityName}}{{item.addressdetail}}</view>
+						<view class="margin-top-xs">
+							<text  class="cu-tag bg-orange radius xs">家</text>
+							<text  class="cu-tag bg-orange radius xs">公司</text>
+							<text  class="cu-tag bg-orange radius xs">寄件人</text>
+						</view>
+					</view>
+					<view class="margin-lr-sm" style="border-bottom:1px solid #eee;"></view>
+					<view class="flex justify-between align-center padding-sm">
+						<view class="flex align-center">
+							<view class="text-lg text-red">
+								<text class=" cuIcon-{{item.check?'roundcheckfill':'round'}}"></text>
+							</view>
+							<text>设置默认寄件地址</text>
+						</view>
+						<view>
+							<text class="margin-right cuIcon-write"><text class="margin-left-xs">编辑</text></text>
+							<text><text class="cuIcon-delete"></text><text class="margin-left-xs">删除</text></text>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class='cu-tabbar-height'></view>
+		</scroll-view>
+	</swiper-item>
+</swiper>
+
+<view class="cu-bar foot tar bg-white flex flex-sub">
+	<button bindtap="addAddress" class="cu-btn bg-red  round">新增地址</button>
+</view>

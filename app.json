@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/Home/checkOrder/index",
+    "pages/My/invite/index",
+    "pages/Home/index",
+    "pages/Order/index",
+    "pages/Order/receipt/index",
+    "pages/Order/expressDetail/index",
+    "pages/My/index",
+    "pages/test/test",
+    "pages/Home/identity/index",
+    "pages/Home/goodsMessage/index",
+    "pages/Home/serviceAddress/index",
+    "pages/Home/addAddress/index",
+    "pages/Home/addressList/index",
+    "pages/Order/orderDetail/index",
+    "pages/My/advice/index",
+    "pages/My/coupon/index",
+    "pages/My/aboutOur/index"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#39b54a",
+    "navigationBarTitleText": "加载中...",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#fff"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

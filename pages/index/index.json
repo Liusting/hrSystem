@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "Home": "/pages/Home/index",
+    "Order": "/pages/Order/index",
+    "My": "/pages/My/index"
+  }
+}
