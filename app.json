@@ -1,10 +1,10 @@
 {
   "pages": [
-
+    "pages/Home/addressList/index",
     "pages/index/index",
     "pages/My/coupon/index",
     "pages/test/test",
-    "pages/Home/addressList/index",
+
     "pages/My/invite/index",
     "pages/Home/index",
     "pages/Home/checkOrder/index",

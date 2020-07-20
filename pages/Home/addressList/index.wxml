@@ -44,8 +44,8 @@
 							<text>设置默认寄件地址</text>
 						</view>
 						<view>
-							<text class="margin-right cuIcon-write"><text class="margin-left-xs">编辑</text></text>
-							<text><text class="cuIcon-delete"></text><text class="margin-left-xs">删除</text></text>
+							<text  class="margin-right cuIcon-write"><text class="margin-left-xs">编辑</text></text>
+							<text bindtap="deleteAddress"><text class="cuIcon-delete"></text><text class="margin-left-xs">删除</text></text>
 						</view>
 					</view>
 				</view>
@@ -77,8 +77,8 @@
 							<text>设置默认寄件地址</text>
 						</view>
 						<view>
-							<text class="margin-right cuIcon-write"><text class="margin-left-xs">编辑</text></text>
-							<text><text class="cuIcon-delete"></text><text class="margin-left-xs">删除</text></text>
+							<text data-item="{{item}}" data-type="3" bindtap="addAddress" class="margin-right cuIcon-write"><text class="margin-left-xs">编辑</text></text>
+							<text bindtap="deleteAddress"><text class="cuIcon-delete"></text><text class="margin-left-xs">删除</text></text>
 						</view>
 					</view>
 				</view>
@@ -89,5 +89,5 @@
 </swiper>
 
 <view class="cu-bar foot tar bg-white flex flex-sub">
-	<button bindtap="addAddress" class="cu-btn bg-redOrange  round">新增地址</button>
+	<button bindtap="addAddress"  data-type="0"  class="cu-btn bg-redOrange  round">新增地址</button>
 </view>

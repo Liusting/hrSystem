@@ -24,13 +24,37 @@ Page({
       }
     ],
     allOrder: [],
-    currtab: '0',
+    currtab: '1',
   },
-  //新增地址
-  addAddress: function () {
-    wx.navigateTo({
-      url: '../addAddress/index?type=' + 0,
+  //删除地址
+  deleteAddress: function (e) {
+    wx.showModal({
+      title: '温馨提示',
+      content: '删除当前选中地址？',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
+  },
+  //新增、编辑地址
+  addAddress: function (e) {
+
+    let type = e.currentTarget.dataset.type;
+    if (type == 3) {
+      let item = JSON.stringify(e.currentTarget.dataset.item);
+      wx.navigateTo({
+        url: '../addAddress/index?type=' + type + '&item=' + item,
+      })
+    } else if (type == 0) {
+      wx.navigateTo({
+        url: '../addAddress/index?type=' + type,
+      })
+    }
+
   },
   //点击寄件人
   select: function () {

@@ -2,3 +2,18 @@
 page{
 background-color: white;
 }
+.btn{
+  background-color: white;
+  font-weight: normal;
+  font-size: 28rpx;
+  padding: 8px 0px;
+  text-align: left;
+  color: #aaaaaa;
+}
+.btn button:not([size='mini']) {
+  width: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  }
+  

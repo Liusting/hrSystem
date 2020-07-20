@@ -5,18 +5,18 @@
 	<view wx:if="{{type==2}}" slot="content" class="text-bold text-black">请填写收件人信息</view>
 </cu-custom>
 
-<form bindsubmit="formSumbit">
+<form bindsubmit="formSumbit" bindreset="formReset">
 	<view class="margin-xs padding-sm text-bold text-xl">
 		联系人信息
 	</view>
 	<view class="margin-xs padding-sm flex align-center" style="border-bottom:1px solid #eee">
 		<input name="name" placeholder="真实姓名"></input>
-		<input name="phoneNumber" placeholder="电话"></input>
+		<input type="number" name="phoneNumber" placeholder="电话"></input>
 	</view>
 	<view class="margin-xs padding-sm flex align-center" style="border-bottom:1px solid #eee">
 		<view class="section">
 			<picker mode="region" name="address" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-				<view class="picker text-gray">{{region[0]}}/{{region[1]}}/{{region[2]}}</view>
+				<view class="picker text-{{addressSelectColor?'black':'gray'}}">{{region[0]}}/{{region[1]}}/{{region[2]}}</view>
 			</picker>
 		</view>
 	</view>
@@ -28,19 +28,22 @@
 		<input placeholder="公司名称(选填)" name="company"></input>
 	</view>
 	<view class="margin-sm padding-sm flex align-center" style="border-bottom:1px solid #eee">
-		<view style="width:130rpx">标签</view>
-		<view class="cu-tag line-gray radius ">公司</view>
-		<view class="cu-tag line-gray radius ">家</view>
-		<view class="cu-tag line-gray radius">学校</view>
+		<view class=" margin-right-sm">标签</view>
+		<view wx:for="{{tagList}}" wx:key="id">
+			<view  class="cu-tag line-gray radius margin-left-xs">{{item.name}}</view>
+		</view>
+		<view class="cu-tag line-gray radius margin-left-xs"><text class="cuIcon-add"></text></view>
 	</view>
 	<view class="flex justify-between padding-sm align-center">
 		<view class="flex align-center">
-			<view class="text-lg ">
-				<text class="text-red cuIcon-roundcheckfill"></text>
+			<view class="text-xl">
+				<text bindtap="isSelect" class="{{isSelect?'cuIcon-roundcheckfill text-red':'text-gray cuIcon-round'}}"></text>
 			</view>
 			<text class="text-gray margin-left-xs">设置默认寄件地址</text>
 		</view>
-		<view>清空当前信息</view>
+		<view style="width:90px">
+			<button class="btn" form-type="reset">清空当前信息</button>
+		</view>
 	</view>
 
 	<view class="cu-bar foot tar bg-white">
