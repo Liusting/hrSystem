@@ -1,10 +1,14 @@
-<view class="head text-white" style="padding-top:{{CustomBar}}px;">
+<view class="head bg-redOrange text-white" style="padding-top:{{CustomBar}}px;">
 	<view class="flex  padding align-center">
-		<view class="cu-avatar xl round" style="background-image:url(http://img5.imgtn.bdimg.com/it/u=1013062358,2295738855&fm=26&gp=0.jpg)">
+		<view class="cu-avatar bg-black xl round" style="background-image:url(http://img3.imgtn.bdimg.com/it/u=229150974,3325578183&fm=26&gp=0.jpg)">
 		</view>
-		<view class="margin-left">
+		<!-- <view class="margin-left">
 			<view class="text-xl text-bold">吴彦祖</view>
-			<view class="margin-top"><text class="tag-round bg-white padding-tb-xs padding-lr-sm text-orange">青铜选手</text><text class="margin-left-sm">积分：20000</text></view>
+			<view class="margin-top"><text class="tag-round bg-white padding-tb-xs padding-lr-sm text-redOrange">青铜选手</text><text class="margin-left-sm">积分：20000</text></view>
+		</view> -->
+		<view class="margin-left">
+			<view class="text-xl" bindtap="login">点击登录/注册</view>
+			<view class="margin-top"><text class="tag-round bg-white padding-tb-xs padding-lr-sm text-redOrange">注册即送优惠券</text></view>
 		</view>
 	</view>
 </view>
@@ -12,7 +16,7 @@
 <view class="bg-white margin padding" style="border-radius:7px">
 	<view class="col-2 grid">
 		<view class="text-center" style="border-right:1px solid #eee">
-			<view class="text-red text-xxl text-bold">2000</view>
+			<view class="text-redOrange text-xxl text-bold">2000</view>
 			<view class="margin-top-xs">订单数量</view>
 		</view>
 		<view class="text-center">
@@ -21,8 +25,6 @@
 		</view>
 	</view>
 </view>
-
-<!-- <text class=" bug">青铜选手</text> -->
 
 <view class="col-4 grid bg-white margin padding" style="border-radius:7px">
 	<view wx:for="{{tools}}" wx:key="{{item.id}}">
@@ -36,7 +38,7 @@
 	<view class="text-center margin-top">
 		<view>
 			<button class="kf_button" open-type="contact" session-from="weapp">
-				<image style="width:60rpx;height:60rpx" mode="aspectFill" src="https://img.alicdn.com/imgextra/i2/1073981443/O1CN01T8lx4O1MWw8BpGT7N_!!1073981443.png"></image>
+				<image style="width:60rpx;height:60rpx" mode="aspectFit" src="https://m.qpic.cn/psc?/V13054I60qvHvi/IuPP.iXwoDzL23w4nRtQcmVmNCO0Ba4KZC86IWnx4HF6TJAKL8PiAuEtbGY3BEaA8rHnoa3iJdbI.ACBAT9QBQ!!/mnull&bo=gACAAIAAgAADCSw!&rf=photolist&t=5"></image>
 			</button>
 			<!-- <image mode="aspectFit" style="width:60rpx;height:60rpx" src="https://img.alicdn.com/imgextra/i2/1073981443/O1CN01T8lx4O1MWw8BpGT7N_!!1073981443.png"></image> -->
 		</view>

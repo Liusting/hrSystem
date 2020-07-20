@@ -110,7 +110,7 @@ checkReceipt:function(){
             // title: res.title,
             latitude: latitude,
             longitude: longitude,
-            iconPath: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1091405991,859863778&fm=26&gp=0.jpg', //图标路径
+            iconPath: 'https://m.qpic.cn/psc?/V13054I60qvHvi/IuPP.iXwoDzL23w4nRtQcjayWBoCy212G0m8Vw*dUXxbyX5GzZp85Tk7rmqPNxK1eKyC7UV8J4asU7fowpAU6Q!!/mnull&bo=IAAgACAAIAADCSw!&rf=photolist&t=5', //图标路径
             width: 20,
             height: 20,
             callout: { //可根据需求是否展示经纬度
@@ -126,7 +126,7 @@ checkReceipt:function(){
             id: 1,
             latitude: 23.026909,
             longitude: 113.128935,
-            iconPath: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1091405991,859863778&fm=26&gp=0.jpg', //图标路径
+            iconPath: 'https://m.qpic.cn/psc?/V13054I60qvHvi/IuPP.iXwoDzL23w4nRtQcjayWBoCy212G0m8Vw*dUXxbyX5GzZp85Tk7rmqPNxK1eKyC7UV8J4asU7fowpAU6Q!!/mnull&bo=IAAgACAAIAADCSw!&rf=photolist&t=5', //图标路径
             width: 20,
             height: 20,
             callout: { //可根据需求是否展示经纬度

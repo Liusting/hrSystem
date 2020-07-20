@@ -1,11 +1,9 @@
-<view class="cu-custom" style="background:#2f70df;height:{{CustomBar}}px">
-	<view class="cu-bar fixed {{bgImage!=''?'none-bg text-white bg-img':''}} {{bgColor}}" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;{{bgImage?'background-image:url(' + bgImage+')':''}}">
-		<cu-custom isBack="{{true}}">
-			<view slot="backText">新增地址</view>
-			<!-- <view slot="content">我的优惠</view> -->
-		</cu-custom>
-	</view>
-</view>
+<cu-custom isBack="{{true}}" bgColor="bg-white">
+	<view slot="backText"></view>
+	<view wx:if="{{type==0}}" slot="content" class="text-bold text-black">新增地址</view>
+	<view wx:if="{{type==1}}" slot="content" class="text-bold text-black">请填写寄件人信息</view>
+	<view wx:if="{{type==2}}" slot="content" class="text-bold text-black">请填写收件人信息</view>
+</cu-custom>
 
 <form bindsubmit="formSumbit">
 	<view class="margin-xs padding-sm text-bold text-xl">
@@ -18,7 +16,7 @@
 	<view class="margin-xs padding-sm flex align-center" style="border-bottom:1px solid #eee">
 		<view class="section">
 			<picker mode="region" name="address" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-				<view class="picker">{{region[0]}}/{{region[1]}}/{{region[2]}}</view>
+				<view class="picker text-gray">{{region[0]}}/{{region[1]}}/{{region[2]}}</view>
 			</picker>
 		</view>
 	</view>

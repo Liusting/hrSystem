@@ -24,6 +24,11 @@ Page({
     flag:true,
     modalName:''
   },
+  gotoIndex:function(e){
+    wx.navigateTo({
+      url: '../../index/index',
+    })
+  },
   showModal(e) {
     this.setData({
       modalName: e.currentTarget.dataset.target

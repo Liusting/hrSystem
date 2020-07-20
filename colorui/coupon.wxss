@@ -119,5 +119,5 @@
   -o-transform: rotate(-45deg);
 }
 .on{
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #e16531;
 }

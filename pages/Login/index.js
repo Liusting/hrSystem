@@ -1,4 +1,4 @@
-// pages/Home/addAddress/index.js
+// pages/Home/identity/index.js
 const app = getApp()
 Page({
 
@@ -11,27 +11,12 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     Custom: app.globalData.Custom,
-    region: ['请选择', '请选择', '请选择'],
-    type:''
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
-  formSumbit:function(e){
-   console.log(e)
-  },
-  bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      region: e.detail.value
-    })
-  },
   onLoad: function (options) {
     var that = this;
-    this.setData({
-      type:options.type
-    })
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -40,8 +25,50 @@ Page({
         })
       }
     });
-  },
+    wx.request({
+      url: 'http://192.168.30.19:8081/getAccessToken',
+      method: "get",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+   
+      },
+      success: function (res) {
+        console.log(res)
+      },
+      fail:function(res) {
+        console.log("获取用户信息失败", res)
+      }
+    })
 
+
+
+
+  //   wx.login({
+  //     success: function (res) {
+  //       console.log(res.code)
+  //       if (res.code) {
+  //         wx.request({
+  //           url: 'http://192.168.30.19:8081/decodeUserInfo',
+  //           method: "POST",
+  //           header: {
+  //             "Content-Type": "application/x-www-form-urlencoded"
+  //           },
+  //           data: {
+  //             code: res.code
+  //           },
+  //           success: function (res) {
+  //             console.log(res)
+  //           }
+  //         })
+  //       }
+  //     }
+  //   })
+  },
+  getPhoneNumber: function (e) {
+    console.log(e);
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

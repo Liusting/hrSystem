@@ -1,15 +1,11 @@
-<view class="cu-custom" style="background:#2f70df;height:{{CustomBar}}px">
-	<view class="cu-bar fixed {{bgImage!=''?'none-bg text-white bg-img':''}} {{bgColor}}" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;{{bgImage?'background-image:url(' + bgImage+')':''}}">
-		<cu-custom isBack="{{true}}">
-			<view slot="backText">优惠券</view>
-			<!-- <view slot="content">我的优惠</view> -->
-		</cu-custom>
-	</view>
-</view>
+<cu-custom isBack="{{true}}" bgColor="bg-white">
+	<view slot="backText"></view>
+	<view slot="content" class="text-bold text-black">优惠券</view>
+</cu-custom>
 
 <view class="bg-white cu-tabbar-height">
 	<view class="flex text-center text-lg">
-		<view class="cu-tabbar-height flex justify-center align-center  flex-sub {{currtab == item.index ? 'text-red on text-bold' : ''}}" wx:for="{{swipertab}}" wx:key bindtap="tabSwitch" data-current="{{item.index}}">
+		<view class="cu-tabbar-height flex justify-center align-center  flex-sub {{currtab == item.index ? 'text-redOrange on' : ''}}" wx:for="{{swipertab}}" wx:key bindtap="tabSwitch" data-current="{{item.index}}">
 			{{item.name}}
 		</view>
 	</view>
@@ -66,7 +62,7 @@
 								<view class="padding text-center">
 									<text class="text-price text-xxl text-bold text-red">10</text>
 									<view class="text-gray"> 满100元可用</view>
-									<view class="cu-tag bg-blue round margin-top-xs">立即使用</view>
+									<view bindtap="gotoIndex" class="cu-tag bg-blue round margin-top-xs">立即使用</view>
 								</view>
 								<view>
 
@@ -82,14 +78,16 @@
 	<!-- 已使用 -->
 	<swiper-item>
 		<scroll-view class="hot-box" scroll-y="true" style="height:{{deviceH-CustomBar-55}}px">
-			<!-- <view class="search_no" wx:if="{{!allOrder.length}}">
-				<view class="font_14">
-					<image class="scimg" src="/images/person/search_no.png"></image>
+			<view  class="flex justify-center align-center" style="margin-top:200rpx">
+				<view>
+					<image style="height:300rpx;width:300rpx" mode="aspectFit" src="https://m.qpic.cn/psc?/V13054I60qvHvi/IuPP.iXwoDzL23w4nRtQcmRp9UHAwpuXACm4QLYj.A01gNZH9qH6nMA6NH*VkIomC4Pp31LRXVw5QhBFoZMmtg!!/mnull&bo=0QCAANEAgAADCSw!&rf=photolist&t=5"></image>
+					<view class="flex justify-center text-gray margin-top">
+						暂无优惠券
+					</view>
 				</view>
-				<text>没有可用优惠券/(ㄒoㄒ)/~~</text>
-			</view> -->
+			</view>
 
-			<view wx:for="{{5}}" wx:key="ffff">
+			<!-- <view wx:for="{{5}}" wx:key="ffff">
 				<view class="margin-sm">
 					<view class="wrapper">
 						<view class="content1">
@@ -135,7 +133,7 @@
 						</view>
 					</view>
 				</view>
-			</view>
+			</view> -->
 			<view class="cu-tabbar-height"></view>
 		</scroll-view>
 	</swiper-item>

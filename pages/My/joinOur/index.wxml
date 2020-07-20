@@ -1,0 +1,54 @@
+<cu-custom isBack="{{true}}" bgColor="bg-white">
+	<view slot="backText"></view>
+	<view slot="content" class="text-bold text-black">加入我们</view>
+</cu-custom>
+<scroll-view scroll-y style="height:{{deviceH-CustomBar}}px">
+	<image mode="widthFix" style="width:100%;height:500rpx" src="http://a1.qpic.cn/psc?/V13054I60qvHvi/IuPP.iXwoDzL23w4nRtQcp4QdgkppVWxkKSo4yRVPYANFUScraDw2jAgg6IrvmbFy44YBBSly2cqbajn0HvK9A!!/c&ek=1&kp=1&pt=0&bo=QAYfB6wNkw8DOX8!&tl=1&vuin=1326077352&tm=1594800000&sce=60-2-2&rf=0-0"></image>
+	<form bindsubmit="formSumbit">
+		<view class=" margin-sm bg-white padding-xs" style="border-radius:7px">
+			<view class="padding-sm text-bold text-xl">
+				基本信息
+			</view>
+			<view class="cu-form-group">
+				<view>姓名</view>
+				<input class="nickname_input" placeholder-class="nickname_placeholder" name="name" placeholder="请输入身份证姓名" />
+			</view>
+
+			<view class="cu-form-group">
+				<view>手机号码</view>
+				<input class="nickname_input" placeholder-class="nickname_placeholder" type="number" name="phoneNumber" placeholder="请输入手机号码" />
+			</view>
+			<view class="cu-form-group">
+				<view>性别</view>
+				<picker name="sexPicker" bindchange="sexChange" value="{{sexindex}}" range="{{sex}}">
+					<view class="picker">
+						{{sexindex?sex[sexindex]:'请选择'}}
+					</view>
+				</picker>
+			</view>
+
+			<view class="cu-form-group">
+				<view>是否自有车辆</view>
+				<view class="text-gray">
+					<radio-group class="block" name="hasCar">
+						<radio value="1" class="redOrange"></radio><label class="margin-left-xs">是</label>
+						<radio value="0" class="redOrange margin-left"></radio><label class="margin-left-xs">否</label>
+					</radio-group>
+				</view>
+			</view>
+
+			<view class="cu-form-group">
+				<view>准驾车型</view>
+				<picker name="carPicker" bindchange="carChange" value="{{carindex}}" range="{{carType}}">
+					<view class="picker">
+						{{carindex?carType[carindex]:'请选择'}}
+					</view>
+				</picker>
+			</view>
+		</view>
+		<view class="cu-bar foot tar bg-white">
+			<button class="cu-btn round   bg-redOrange" form-type="submit">提交</button>
+		</view>
+	</form>
+	<view class='cu-tabbar-height'></view>
+</scroll-view>

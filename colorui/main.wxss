@@ -13,6 +13,7 @@
 	/* Color 可以自定义相关配色 */
 	/* var属性兼容性 --> https://www.caniuse.com/#feat=css-variables */
 	/* 标准色 */
+	--redOrange:#e16531;
 	--red: #F05A28;
 	--orange: #f37b1d;
 	--yellow: #fbbd08;
@@ -3432,6 +3433,11 @@ scroll-view.cu-steps .cu-item {
 	border-color: var(--white);
 }
 
+.bg-redOrange {
+	background-color: var(--redOrange);
+	color: var(--white);
+}
+
 .bg-red {
 	background-color: var(--red);
 	color: var(--white);
@@ -3848,6 +3854,13 @@ scroll-view.cu-steps .cu-item {
 
 .text-right {
 	text-align: right;
+}
+
+
+.text-redOrange,
+.line-redOrange,
+.lines-redOrange {
+	color: var(--redOrange);
 }
 
 .text-red,

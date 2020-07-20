@@ -5,33 +5,59 @@ App({
   // 全局ip+端口
   ipAndPort: 'http://192.168.30.19:8081',
   onLaunch: function () {
+    let that = this;
     this.screenSize();
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
     // 1.调用微信登录接口，获取code
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // console.log(2222,res);
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
+    wx.login({
+      success: function (res) {
+        let code = res.code;
+        // 获取用户信息
+        wx.getSetting({
+          success: res => {
+            if (res.authSetting['scope.userInfo']) {
+              // console.log('已经授权')
+              // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+              wx.getUserInfo({
+                success: function (res) {
+                  // wx.request({
+                  //   url: 'http://192.168.30.19:8081/decodeUserInfo',
+                  //   method: "POST",
+                  //   header: {
+                  //     "Content-Type": "application/x-www-form-urlencoded"
+                  //   },
+                  //   data: {
+                  //     code: code,
+                  //     encryptedData:res.encryptedData,
+                  //     iv:res.iv
+                  //   },
+                  //   success: function (res) {
+                  //     console.log(res)
+                  //   },
+                  //   fail:function(res) {
+                  //     console.log("获取用户信息失败", res)
+                  //   }
+                  // })
+                  
+                  // 可以将 res 发送给后台解码出 unionId
+                  that.globalData.userInfo = res.userInfo
 
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
+                  // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+                  // 所以此处加入 callback 以防止这种情况
+                  if (that.userInfoReadyCallback) {
+                    that.userInfoReadyCallback(res)
+                  }
+                },
+                fail(res) {
+                  console.log("获取用户信息失败", res)
+                }
+              })
             }
-          })
-        }
+          }
+        })
       }
     })
+
     wx.getSystemInfo({
       success: e => {
         this.globalData.StatusBar = e.statusBarHeight;

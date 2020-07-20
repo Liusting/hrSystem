@@ -7,25 +7,25 @@
 	<!-- 导航栏首页 -->
 	<view class="action1" bindtap="NavChange" data-cur="Home">
 		<view style="font-size:50rpx">
-			<view class="{{PageCur=='Home'?'cuIcon-homefill text-blue' : 'cuIcon-homefill text-gray'}}"></view>
+			<view class="{{PageCur=='Home'?'cuIcon-homefill text-redOrange' : 'cuIcon-home text-gray'}}"></view>
 		</view>
-		<view class="{{PageCur=='Home'?'text-blue text-sm margin-top-xs':'text-gray text-sm margin-top-xs'}}">首页</view>
+		<view class="{{PageCur=='Home'?'text-redOrange text-sm margin-top-xs':'text-gray text-sm margin-top-xs'}}">下单</view>
 	</view>
 
 	<!-- 导航栏订单 -->
 	<view class="action1" bindtap="NavChange" data-cur="Order">
 		<view style="font-size:50rpx">
-			<view class="{{PageCur=='Order'?'cuIcon-homefill text-blue' : 'cuIcon-homefill text-gray'}}"></view>
+			<view class="{{PageCur=='Order'?'cuIcon-discoverfill text-redOrange' : 'cuIcon-discover text-gray'}}"></view>
 		</view>
-		<view class="{{PageCur=='Order'?'text-blue text-sm margin-top-xs':'text-gray text-sm margin-top-xs'}}">我的订单</view>
+		<view class="{{PageCur=='Order'?'text-redOrange text-sm margin-top-xs':'text-gray text-sm margin-top-xs'}}">我的订单</view>
 	</view>
 
 	<!-- 导航栏我的 -->
 	<view class="action1" bindtap="NavChange" data-cur="My">
 		<view style="font-size:50rpx">
-			<view class="{{PageCur=='My'?'cuIcon-homefill text-blue' : 'cuIcon-homefill text-gray'}}"></view>
+			<view class="{{PageCur=='My'?'cuIcon-peoplefill text-redOrange' : 'cuIcon-people text-gray'}}"></view>
 		</view>
-		<view class="{{PageCur=='My'?'text-blue text-sm margin-top-xs':'text-gray text-sm margin-top-xs'}}">个人中心</view>
+		<view class="{{PageCur=='My'?'text-redOrange text-sm margin-top-xs':'text-gray text-sm margin-top-xs'}}">个人中心</view>
 	</view>
 
 </view>

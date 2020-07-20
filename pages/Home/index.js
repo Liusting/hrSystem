@@ -147,9 +147,10 @@ Component({
       })
     },
     //添加地址
-    addAddress: function () {
+    addAddress: function (e) {
+      let type = e.currentTarget.dataset.type;
       wx.navigateTo({
-        url: '../Home/addAddress/index',
+        url: '../Home/addAddress/index?type=' + type,
       })
     },
     //删除地址

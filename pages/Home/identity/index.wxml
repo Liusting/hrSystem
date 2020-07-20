@@ -1,11 +1,7 @@
-<view class="cu-custom " style="height:{{CustomBar}}px">
-	<view class="cu-bar bg-white fixed {{bgImage!=''?'none-bg  bg-img':''}} {{bgColor}}" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;{{bgImage?'background-image:url(' + bgImage+')':''}}">
-		<cu-custom isBack="{{true}}">
-			<view slot="backText">身份认证</view>
-			<!-- <view slot="content">我的优惠</view> -->
-		</cu-custom>
-	</view>
-</view>
+<cu-custom isBack="{{true}}" bgColor="bg-white">
+	<view slot="backText"></view>
+	<view slot="content" class="text-bold text-black">身份认证</view>
+</cu-custom>
 <view class="bg text-white text-xl padding">
 	<view class="flex justify-center align-center margin-top"><text class="cuIcon-infofill"></text>根据政策要求</view>
 	<view class="flex justify-center margin-top-sm">线上物流下单需要先完成实名认真</view>

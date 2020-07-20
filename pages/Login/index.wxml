@@ -1,0 +1,20 @@
+<cu-custom isBack="{{true}}" bgColor="bg-white">
+	<view slot="backText"></view>
+	<view slot="content" class="text-bold text-black">登录</view>
+</cu-custom>
+<view class="padding flex justify-center" style="height:{{deviceH-CustomBar}}px">
+	<view>
+		<view class="flex justify-center">
+			<image src="http://img1.imgtn.bdimg.com/it/u=2397512034,2253234707&fm=26&gp=0.jpg"></image>
+		</view>
+		<view class="flex flex-sub">
+			<button class="cu-btn round flex-sub lg bg-gray">登录/注册</button>
+		</view>
+		<view class="flex flex-sub margin-top">
+			<button open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber" class="cu-btn round flex-sub lg bg-green">微信手机号快捷登录</button>
+		</view>
+		<view class="margin-top text-sm">
+			若你的微信手机号未注册，将为您直接注册，注册即视同意<text class="text-blue">《流浪者用户注册协议》</text>、<text class="text-blue">《流浪者隐私政策》</text>
+		</view>
+	</view>
+</view>

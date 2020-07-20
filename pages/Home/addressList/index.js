@@ -29,7 +29,7 @@ Page({
   //新增地址
   addAddress: function () {
     wx.navigateTo({
-      url: '../addAddress/index',
+      url: '../addAddress/index?type=' + 0,
     })
   },
   //点击寄件人
@@ -49,7 +49,7 @@ Page({
       }
     })
   },
-  
+
   /**
    * @Explain：选项卡点击切换
    */

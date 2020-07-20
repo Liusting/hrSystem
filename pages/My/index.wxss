@@ -2,7 +2,7 @@
 .head {
   height: 350rpx;
   width: 100%;
-  background-image: url(https://img.alicdn.com/imgextra/i3/1073981443/O1CN01gpe7lT1MWw86bvEcx_!!1073981443.png)
+  /* background-color: #FD8662; */
 }
 
 .kf_button {
@@ -12,6 +12,7 @@
   line-height: unset;
   width: 25%;
   font-size: unset;
+  border: none;
 }
 
 .kf_button:not([size='mini']) {

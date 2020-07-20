@@ -11,27 +11,43 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     Custom: app.globalData.Custom,
-    region: ['请选择', '请选择', '请选择'],
-    type:''
+    sexindex: null,
+    carindex: null,
+    sex: ['男', '女'],
+    carType: ['A1', 'A2','A3','B1', 'B2','C1', 'C2'],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   formSumbit:function(e){
-   console.log(e)
+    console.log(e);
+   wx.showModal({
+     title:'提交成功',
+     content:'感谢您的信任，稍后我们会有专人联系您！请注意接听电话。',
+     success:function(res){
+       if(res.confirm){
+         wx.navigateBack({
+           delta: 1,
+         })
+       }
+     }
+   })
   },
-  bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+  sexChange(e) {
+    console.log(e);
     this.setData({
-      region: e.detail.value
+      sexindex: e.detail.value
+    })
+  },
+  carChange(e) {
+    console.log(e);
+    this.setData({
+      carindex: e.detail.value
     })
   },
   onLoad: function (options) {
     var that = this;
-    this.setData({
-      type:options.type
-    })
     wx.getSystemInfo({
       success: function (res) {
         that.setData({

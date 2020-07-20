@@ -14,31 +14,41 @@ Page({
     tools: [{
         id: '1',
         name: '地址簿',
-        imageUrl: 'https://img.alicdn.com/imgextra/i2/1073981443/O1CN01RMKxeS1MWw891hc6d_!!1073981443.png'
+        imageUrl: 'https://m.qpic.cn/psc?/V13054I60qvHvi/IuPP.iXwoDzL23w4nRtQcppQFf7Oib665fv4ZHL.eGRJT4BS*uoUlpqfyZO8JI5hdpW227V3HGVgZTUSFsm*Vg!!/mnull&bo=gACAAIAAgAADCSw!&rf=photolist&t=5'
       },
       {
         id: '2',
         name: '优惠券',
-        imageUrl: 'https://img.alicdn.com/imgextra/i4/1073981443/O1CN01J2Facj1MWw8BpFKUl_!!1073981443.png'
+        imageUrl: 'https://m.qpic.cn/psc?/V13054I60qvHvi/IuPP.iXwoDzL23w4nRtQcn5GAnV3FMvpr*VKwSDOhdKRqmAxURdFM1ijfkBpxXV9JcEUWlscsBKuGUnl4KuKmg!!/mnull&bo=gACAAIAAgAADCSw!&rf=photolist&t=5'
       },
       {
         id: '3',
         name: '邀请分享',
-        imageUrl: 'https://img.alicdn.com/imgextra/i2/1073981443/O1CN013WX3xT1MWw87QzR3A_!!1073981443.png'
+        imageUrl: 'https://m.qpic.cn/psc?/V13054I60qvHvi/IuPP.iXwoDzL23w4nRtQcjExB4DDTzTw37RIxCGv4yKHk6bT5FTqBOhj8j8Fci8XTeyQ0Tmhlam4SxEoYPmGOg!!/mnull&bo=gACAAIAAgAADCSw!&rf=photolist&t=5'
       },
       {
         id: '4',
         name: '关于我们',
-        imageUrl: 'https://img.alicdn.com/imgextra/i3/1073981443/O1CN012tu8Vq1MWw86rEqJj_!!1073981443.png'
+        imageUrl: 'https://m.qpic.cn/psc?/V13054I60qvHvi/IuPP.iXwoDzL23w4nRtQcuc17nJ*dQuuhqOHqPPB*AXAPkf93R6vvFXHXjW2CCAlPTUFYPHHabxjmAypLOMMeQ!!/mnull&bo=gACAAIAAgAADCSw!&rf=photolist&t=5'
       },
       {
         id: '5',
         name: '投诉与保障',
-        imageUrl: 'https://img.alicdn.com/imgextra/i4/1073981443/O1CN01ir7N8j1MWw8A6dGXq_!!1073981443.png'
+        imageUrl: 'https://m.qpic.cn/psc?/V13054I60qvHvi/IuPP.iXwoDzL23w4nRtQclD41BVflPIAztobyp7mfk9hBugaGqvmns8qgHZgQ2LFbGUiRcr86qmuAHdql81ISg!!/mnull&bo=gACAAIAAgAADCSw!&rf=photolist&t=5'
+      },
+      {
+        id: '6',
+        name: '加入我们',
+        imageUrl: 'https://m.qpic.cn/psc?/V13054I60qvHvi/IuPP.iXwoDzL23w4nRtQcuJqVSPaPdufRSzWaIp.ZcWED2vTX5ryTnU8TaQFSPn19pQi4CbCJ1s7MceZ0ohaeA!!/mnull&bo=gACAAIAAgAADCSw!&rf=photolist&t=5'
       }
     ]
   },
-
+//登录
+login:function(){
+  wx.navigateTo({
+    url: '../Login/index',
+  })
+},
   /**
    * 生命周期函数--监听页面加载
    */
@@ -56,9 +66,8 @@ Page({
   tools: function (e) {
     console.log(e.currentTarget.dataset.id);
     let id = e.currentTarget.dataset.id;
-    switch(id) {
+    switch (id) {
       case "1":
-        console.log(44444)
         wx.navigateTo({
           url: '../Home/addressList/index',
         })
@@ -83,8 +92,13 @@ Page({
           url: '../My/advice/index',
         })
         break;
-        default:
-          break;
+      case "6":
+        wx.navigateTo({
+          url: '../My/joinOur/index',
+        })
+        break;
+      default:
+        break;
     }
   },
   /**

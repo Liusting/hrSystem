@@ -1,22 +1,25 @@
 {
   "pages": [
+
     "pages/index/index",
-    "pages/Home/checkOrder/index",
+    "pages/My/coupon/index",
+    "pages/test/test",
+    "pages/Home/addressList/index",
     "pages/My/invite/index",
     "pages/Home/index",
+    "pages/Home/checkOrder/index",
+    "pages/Home/goodsMessage/index",
+    "pages/Login/index",
+    "pages/Home/addAddress/index",
     "pages/Order/index",
+    "pages/My/joinOur/index",
     "pages/Order/receipt/index",
+    "pages/Order/orderDetail/index",
     "pages/Order/expressDetail/index",
     "pages/My/index",
-    "pages/test/test",
     "pages/Home/identity/index",
-    "pages/Home/goodsMessage/index",
     "pages/Home/serviceAddress/index",
-    "pages/Home/addAddress/index",
-    "pages/Home/addressList/index",
-    "pages/Order/orderDetail/index",
     "pages/My/advice/index",
-    "pages/My/coupon/index",
     "pages/My/aboutOur/index"
   ],
   "permission": {
@@ -28,7 +31,7 @@
     "navigationBarBackgroundColor": "#39b54a",
     "navigationBarTitleText": "加载中...",
     "navigationStyle": "custom",
-    "navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true,
     "backgroundColor": "#fff"
   },
@@ -36,5 +39,6 @@
     "cu-custom": "/colorui/components/cu-custom"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "debug": false
 }

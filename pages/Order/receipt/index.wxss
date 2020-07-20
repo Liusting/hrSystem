@@ -7,7 +7,6 @@
 }
 .rich-text {
   width: 700rpx;
-  padding: 25rpx 0;
 }
 
 .rich-text-wrp {

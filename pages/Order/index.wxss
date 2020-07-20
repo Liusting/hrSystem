@@ -1,5 +1,21 @@
 @import "/colorui/main.wxss";
 @import "/colorui/icon.wxss";
 .on{
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #e16531;
+}
+.cu-btn1{
+  font-size: 24rpx;
+  vertical-align: middle;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-weight: normal;
+  padding: 0rpx 0rpx;
+  height: 48rpx;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  white-space: nowrap;
+  
+
 }

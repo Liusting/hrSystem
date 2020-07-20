@@ -1,5 +1,6 @@
 {
   "component": true,
+  "navigationBarTextStyle": "white",
   "usingComponents": {
     "Home": "/pages/Home/index",
     "Order": "/pages/Order/index",
