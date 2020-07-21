@@ -54,7 +54,10 @@ Component({
         content:'确定要取消订单吗?',
         success (res) {
           if (res.confirm) {
-          console.log('用户点击确定')
+          wx.showToast({
+            icon:'success',
+            title: '取消成功',
+          })
           } else if (res.cancel) {
           console.log('用户点击取消')
           }

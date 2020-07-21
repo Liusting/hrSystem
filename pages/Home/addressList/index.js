@@ -1,7 +1,6 @@
 // pages/Home/addressList/index.js
 const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -26,6 +25,11 @@ Page({
     allOrder: [],
     currtab: '1',
   },
+  //默认寄件地址
+    // 单选按钮事件
+    radioChange(e){
+      console.log('单选:', e.detail.value)
+  },
   //删除地址
   deleteAddress: function (e) {
     wx.showModal({
@@ -33,7 +37,10 @@ Page({
       content: '删除当前选中地址？',
       success(res) {
         if (res.confirm) {
-          console.log('用户点击确定')
+          wx.showToast({
+            icon:'loading',
+            title: '正在删除',
+          })
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -42,7 +49,6 @@ Page({
   },
   //新增、编辑地址
   addAddress: function (e) {
-
     let type = e.currentTarget.dataset.type;
     if (type == 3) {
       let item = JSON.stringify(e.currentTarget.dataset.item);
@@ -98,14 +104,14 @@ Page({
     let that = this
     switch (this.data.currtab) {
       case 0:
-        that.allShow()
-        break
+        that.allShow();
+        break;
       case 1:
-        that.waitPayShow()
-        break
+        that.waitPayShow();
+        break;
       case 2:
-        that.waitSendShow()
-        break
+        that.waitSendShow();
+        break;
     }
   },
   // 未使用

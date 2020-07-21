@@ -27,5 +27,55 @@
 		</view>
 		<view class="{{PageCur=='My'?'text-redOrange text-sm margin-top-xs':'text-gray text-sm margin-top-xs'}}">个人中心</view>
 	</view>
+</view>
 
+
+<view>
+	<!-- 弹窗遮罩层 -->
+	<view wx:if="{{isShowCouponPopUp}}" class="popover-mask-layer"></view>
+	<!-- 优惠劵弹窗 //用hidden而不用wx:if原因是hidden条件不成立时候也会加载图片-->
+	<view class="coupon-pop-up" catchtouchmove="onPreventTouchMove" animation="{{animationData}}">
+		<view class="body">
+
+			<view class="mid-coupons">
+				<view class="">
+					<scroll-view scroll-y="true">
+						<block wx:for="{{couponArr}}" for-index="index" wx:key="index">
+							<view class="margin-tb-sm">
+								<view class="bg-white flex padding-sm" style="border-radius:7px">
+									<view>
+										<image style="height:100rpx;width:100rpx" src="https://img.alicdn.com/imgextra/i4/1073981443/O1CN01KqpPDj1MWw875IBq2_!!1073981443.png"></image>
+									</view>
+									<view class="flex justify-between align-center" style="width:100%">
+										<view class="margin-left">
+											<view class="text-bold text-lg">{{item.CouponName}}</view>
+											<view class="text-gray text-sm">{{item.CouponTypeName}}</view>
+											<view class="text-gray text-sm">自领取后7日内有效</view>
+										</view>
+										<view class="text-center">
+											<view><text class="text-red text-bold text-xl text-price">{{item.CouponMoney}}</text></view>
+											<view bindtap="getCoupons" data-index="{{index}}" wx:if="{{!item.HasItBeenClaimed}}">
+												<text class="cu-tag round bg-redOrange">立即领取</text>
+											</view>
+											<view bindtap="alreadyReceived" wx:if="{{item.HasItBeenClaimed}}">
+												<text class="cu-tag round bg-gray">领取成功</text>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+						</block>
+					</scroll-view>
+				</view>
+				<view class="flex justify-center  padding">
+					<button bindtap="getAllCoupons" class="round bg-yellow cu-btn">全部领取</button>
+				</view>
+			</view>
+			<view class="flex justify-center margin-top-sm">
+				<view class="" bindtap="closeTheCouponPopUp">
+					<image mode="aspectFit" style="height:70rpx;height:70rpx" src="https://m.qpic.cn/psc?/V13054I60qvHvi/ruAMsa53pVQWN7FLK88i5kgUkhQCKbtLZrz8N2xTSkw33z2wAbvd63hrtFu2FHNehuanuoO8cSO*fXrBK56S3..jW0bvHA0irUfFTqjrJ8Y!/mnull&bo=yADIAAAAAAADByI!&rf=photolist&t=5"></image>
+				</view>
+			</view>
+		</view>
+	</view>
 </view>
