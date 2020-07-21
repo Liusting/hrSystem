@@ -17,3 +17,7 @@
     </picker>
   </view>
 </view>
+
+<view wx:for="{{info}}">
+<view>{{item.serviceName}}{{item.distance}}公里</view>
+</view>

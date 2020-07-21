@@ -110,34 +110,34 @@ checkReceipt:function(){
             // title: res.title,
             latitude: latitude,
             longitude: longitude,
-            iconPath: 'https://m.qpic.cn/psc?/V13054I60qvHvi/IuPP.iXwoDzL23w4nRtQcjayWBoCy212G0m8Vw*dUXxbyX5GzZp85Tk7rmqPNxK1eKyC7UV8J4asU7fowpAU6Q!!/mnull&bo=IAAgACAAIAADCSw!&rf=photolist&t=5', //图标路径
-            width: 20,
-            height: 20,
-            callout: { //可根据需求是否展示经纬度
-              content: "寄",
-              color: '#fff',
-              padding:5,
-              fontSize:15,
-              borderRadius:7,
-              bgColor:"#e54d42",
-              display: 'ALWAYS'
-            }
+            iconPath: 'https://m.qpic.cn/psc?/V13054I60qvHvi/ruAMsa53pVQWN7FLK88i5r0UcMyv9VMxkNowRzF*vkRP455bql5qSCvlFHQmKoCG3h2.NXd.VUvTTZLvpSbuPt3HXmwMf5NWh0DTGx1aAxc!/mnull&bo=gACAAIAAgAADCSw!&rf=photolist&t=5', //图标路径
+            width: 50,
+            height: 50,
+            // callout: { //可根据需求是否展示经纬度
+            //   content: '深圳市',
+            //   color: '#fff',
+            //   padding:10,
+            //   fontSize:15,
+            //   borderRadius:20,
+            //   bgColor:"#e54d42",
+            //   display: 'ALWAYS'
+            // }
           },{
             id: 1,
             latitude: 23.026909,
             longitude: 113.128935,
-            iconPath: 'https://m.qpic.cn/psc?/V13054I60qvHvi/IuPP.iXwoDzL23w4nRtQcjayWBoCy212G0m8Vw*dUXxbyX5GzZp85Tk7rmqPNxK1eKyC7UV8J4asU7fowpAU6Q!!/mnull&bo=IAAgACAAIAADCSw!&rf=photolist&t=5', //图标路径
-            width: 20,
-            height: 20,
-            callout: { //可根据需求是否展示经纬度
-              content: "收",
-              color: '#fff',
-              padding:5,
-              fontSize:15,
-              borderRadius:7,
-              bgColor:"#0081ff",
-              display: 'ALWAYS'
-            }
+            iconPath: 'https://m.qpic.cn/psc?/V13054I60qvHvi/ruAMsa53pVQWN7FLK88i5r0UcMyv9VMxkNowRzF*vkRSeRIg0mk11vF0Xl*UWeBRB2v.hb9RERT6pbtBVNowIlGrRK5He6L3v2b92YPs624!/mnull&bo=gACAAIAAgAADCSw!&rf=photolist&t=5', //图标路径
+            width: 50,
+            height: 50,
+            // callout: { //可根据需求是否展示经纬度
+            //   content: "收",
+            //   color: '#fff',
+            //   padding:5,
+            //   fontSize:15,
+            //   borderRadius:7,
+            //   bgColor:"#0081ff",
+            //   display: 'ALWAYS'
+            // }
           }],
           poi: { //根据自己data数据设置相应的地图中心坐标变量名称
             latitude: latitude,
@@ -182,7 +182,7 @@ checkReceipt:function(){
           polyline: [{
             points: pl,
             color: '#FF0000DD',
-            width: 2
+            width: 4
           }]
         })
       },

@@ -15,6 +15,15 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  toCall:function(e){    
+    console.log(11111)
+    wx.makePhoneCall({
+      phoneNumber: '13047838940',
+      success: function () {
+        console.log('成功拨打电话')
+      }
+    })
+  },
   onLoad: function (options) {
     var that = this;
     wx.getSystemInfo({
