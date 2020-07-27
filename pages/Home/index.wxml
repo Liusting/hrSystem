@@ -18,12 +18,12 @@
 
 <view class="flex bg-white align-center padding margin-sm justify-between shadow" style="border-radius:7px">
 	<view style="width:100%">
-		<view class="flex align-center justify-between" >
+		<view class="flex align-center justify-between">
 			<view class="flex align-center" style="width:80%" bindtap="addAddress" data-type="1">
 				<view class="cu-tag bg-red radius">
 					寄
 				</view>
-				<view class="margin-left" >
+				<view class="margin-left">
 					<view wx:if="{{sendInfo.addresseeName==null}}">
 						<view class="text-lg text-bold text-black">寄件人信息</view>
 						<view class="text-sm margin-top text-gray">请填写真实姓名</view>
@@ -44,12 +44,12 @@
 			<view></view>
 		</view>
 		<view>
-			<view class="flex align-center justify-between" >
+			<view class="flex align-center justify-between">
 				<view class="flex align-center" style="width:80%" bindtap="addAddress" data-type="2">
 					<view class="cu-tag bg-blue radius">
 						收
 					</view>
-					<view class="margin-left" >
+					<view class="margin-left">
 						<view wx:if="{{receiveInfo.addresseeName==null}}">
 							<view class="text-lg text-bold text-black">收件人信息</view>
 							<view class="text-sm margin-top text-gray">请填写真实姓名</view>
@@ -108,8 +108,8 @@
 							<text class="cuIcon-{{item.check?'roundcheckfill':'round'}}"></text>
 							设置默认寄件地址</view>
 						<view>
-							<text class="margin-right">编辑</text>
-							<text bindtap="deleteAddress" data-id="{{item.id}}">删除</text>
+							<text  class="margin-right cuIcon-write"><text class="margin-left-xs">编辑</text></text>
+							<text bindtap="deleteAddress"><text class="cuIcon-delete"></text><text class="margin-left-xs">删除</text></text>
 						</view>
 					</view>
 				</view>
@@ -122,52 +122,3 @@
 	</view>
 </view>
 
-<view>
-	<!-- 弹窗遮罩层 -->
-	<view wx:if="{{isShowCouponPopUp}}" class="popover-mask-layer"></view>
-	<!-- 优惠劵弹窗 //用hidden而不用wx:if原因是hidden条件不成立时候也会加载图片-->
-	<view class="coupon-pop-up" catchtouchmove="onPreventTouchMove" animation="{{animationData}}">
-		<view class="body">
-
-			<view class="mid-coupons">
-				<view class="">
-					<scroll-view scroll-y="true">
-						<block wx:for="{{couponArr}}" for-index="index" wx:key="index">
-							<view class="margin-tb-sm">
-								<view class="bg-white flex padding-sm" style="border-radius:7px">
-									<view>
-										<image style="height:100rpx;width:100rpx" src="https://img.alicdn.com/imgextra/i4/1073981443/O1CN01KqpPDj1MWw875IBq2_!!1073981443.png"></image>
-									</view>
-									<view class="flex justify-between align-center" style="width:100%">
-										<view class="margin-left">
-											<view class="text-bold text-lg">{{item.CouponName}}</view>
-											<view class="text-gray text-sm">{{item.CouponTypeName}}</view>
-											<view class="text-gray text-sm">自领取后7日内有效</view>
-										</view>
-										<view class="text-center">
-											<view><text class="text-red text-bold text-xl text-price">{{item.CouponMoney}}</text></view>
-											<view bindtap="getCoupons" data-index="{{index}}" wx:if="{{!item.HasItBeenClaimed}}">
-												<text class="cu-tag round bg-orange">立即领取</text>
-											</view>
-											<view bindtap="alreadyReceived" wx:if="{{item.HasItBeenClaimed}}">
-												<text class="cu-tag round bg-gray">领取成功</text>
-											</view>
-										</view>
-									</view>
-								</view>
-							</view>
-						</block>
-					</scroll-view>
-				</view>
-				<view class="flex justify-center  padding">
-					<button bindtap="getAllCoupons" class="round bg-yellow cu-btn">全部领取</button>
-				</view>
-			</view>
-			<view class="flex justify-center margin-top-sm">
-				<view class="" bindtap="closeTheCouponPopUp">
-					<image mode="aspectFit" style="height:80rpx;height:80rpx" src="https://img.alicdn.com/imgextra/i4/1073981443/O1CN01XuixxR1MWw7zprABv_!!1073981443.png"></image>
-				</view>
-			</view>
-		</view>
-	</view>
-</view>
