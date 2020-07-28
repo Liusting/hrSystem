@@ -36,10 +36,8 @@
 	<!-- 优惠劵弹窗 //用hidden而不用wx:if原因是hidden条件不成立时候也会加载图片-->
 	<view class="coupon-pop-up" catchtouchmove="onPreventTouchMove" animation="{{animationData}}">
 		<view class="body">
-
-			<view class="mid-coupons">
-				<view class="">
-					<scroll-view scroll-y="true">
+			<view class="mid-coupons padding">
+					<scroll-view scroll-y="true" style="height:379px">
 						<block wx:for="{{couponArr}}" for-index="index" wx:key="index">
 							<view class="margin-tb-sm">
 								<view class="bg-white flex padding-sm" style="border-radius:7px">
@@ -66,8 +64,7 @@
 							</view>
 						</block>
 					</scroll-view>
-				</view>
-				<view class="flex justify-center  padding">
+				<view class="flex justify-center padding-top">
 					<button bindtap="getAllCoupons" class="round bg-yellow cu-btn">全部领取</button>
 				</view>
 			</view>

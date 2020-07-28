@@ -82,15 +82,8 @@
 
 .coupon-pop-up .mid-coupons {
   background-color: #E41B3F;
-  border-radius: 30rpx;
-  padding: 20rpx;
+  border-radius: 7px;
   box-sizing: border-box;
-}
-
-.mid-coupons .content scroll-view {
-  max-height: 510rpx;
-  min-height: 340rpx;
-  overflow-y: auto;
 }
 
 

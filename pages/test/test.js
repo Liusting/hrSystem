@@ -2,6 +2,17 @@ var QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
 var qqmapsdk = new QQMapWX({
   key: '3LABZ-H73CP-KS6DN-V5TXQ-B36R7-LBFHD'
 });
+// let plugin  = requirePlugin('routePlan');
+// let key = '3LABZ-H73CP-KS6DN-V5TXQ-B36R7-LBFHD';
+// let referer = '来回收';   //调用插件的app的名称
+// let endPoint = JSON.stringify({  //终点
+//   'name': '北京西站',
+//   'latitude': 39.894806,
+//   'longitude': 116.321592
+// });
+// wx.navigateTo({
+//   url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
+// });
 var App = getApp();
 Page({
   data: {

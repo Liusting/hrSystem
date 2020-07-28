@@ -65,10 +65,14 @@ checkReceipt:function(){
         })
       }
     });
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
     wx.request({
       url: 'http://mock-api.com/PKeZpPz0.mock/express',
       success(res){
-        console.log(res.data);
+        wx.hideLoading()
        that.setData({
          addressList:res.data
        })
@@ -99,7 +103,6 @@ checkReceipt:function(){
       //获取表单传入地址
       address: from, //地址参数，例：固定地址，address: '北京市海淀区彩和坊路海淀西大街74号'
       success: function (res) { //成功后的回调
-        console.log(1111,res);
         var res = res.result;
         var latitude = res.location.lat;
         var longitude = res.location.lng;

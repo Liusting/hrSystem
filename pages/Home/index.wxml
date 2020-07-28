@@ -13,9 +13,6 @@
 	</swiper>
 </view>
 
-
-
-
 <view class="flex bg-white align-center padding margin-sm justify-between shadow" style="border-radius:7px">
 	<view style="width:100%">
 		<view class="flex align-center justify-between">
@@ -29,7 +26,7 @@
 						<view class="text-sm margin-top text-gray">请填写真实姓名</view>
 					</view>
 					<view wx:else>
-						<view>{{sendInfo.addresseeName}} {{sendInfo.phoneNumber}}</view>
+						<view class="text-lg text-bold text-black">{{sendInfo.addresseeName}} {{sendInfo.phoneNumber}}</view>
 						<view>{{sendInfo.provinceName}}{{sendInfo.cityName}}{{sendInfo.cityName}}{{sendInfo.addressdetail}}</view>
 					</view>
 				</view>
@@ -55,7 +52,7 @@
 							<view class="text-sm margin-top text-gray">请填写真实姓名</view>
 						</view>
 						<view wx:else>
-							<view>{{receiveInfo.addresseeName}} {{receiveInfo.phoneNumber}}</view>
+							<view class="text-lg text-bold text-black">{{receiveInfo.addresseeName}} {{receiveInfo.phoneNumber}}</view>
 							<view>{{receiveInfo.provinceName}}{{receiveInfo.cityName}}{{receiveInfo.cityName}}{{receiveInfo.addressdetail}}</view>
 						</view>
 					</view>
