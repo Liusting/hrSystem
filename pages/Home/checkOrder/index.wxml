@@ -97,8 +97,8 @@
 						<view class="text-lg">专车直发</view>
 						<view class="text-sm text-gray">预计<text class="text-red">7月1日</text>送达</view>
 					</view>
-					<view>
-						<text class="text-price text-red text-bold text-lg margin-right-sm">399</text>
+					<view class="flex  align-center">
+						<text class="text-price text-redOrange text-bold text-lg margin-right-sm">399</text>
 						<radio class="round"></radio>
 					</view>
 				</label>

@@ -46,7 +46,77 @@ Page({
       value: 7,
       name: '其他',
       checked: false,
-    }]
+    }],
+    goodNumber: 1,
+    estimatedWeight: 1,
+    estimatedVolume: 1
+  },
+  addAndReduce: function (e) {
+    let type = e.currentTarget.dataset.type;
+    let item = e.currentTarget.dataset.item;
+    switch (type) {
+      case 'number':
+        let number = this.data.goodNumber;
+        if (item == 'add') {
+          number++;
+        } else if (item == 'reduce') {
+          if (number == 1) {
+            wx.showToast({
+              icon: 'none',
+              title: '数量不能小于1'
+            })
+            return;
+          } else {
+            number--;
+          }
+        }
+        this.setData({
+          goodNumber: number
+        })
+        break;
+      case 'weight':
+        let weight = this.data.estimatedWeight;
+        if (item == 'add') {
+          weight++;
+        } else if (item == 'reduce') {
+          if (weight == 1) {
+            wx.showToast({
+              icon: 'none',
+              title: '重量不能小于1'
+            })
+            return;
+          } else {
+            weight--;
+          }
+        }
+        this.setData({
+          estimatedWeight: weight
+        })
+        break;
+      case 'volume':
+        let volume = this.data.estimatedVolume;
+        if (item == 'add') {
+          volume++;
+        } else if (item == 'reduce') {
+          if (volume == 1) {
+            wx.showToast({
+              icon: 'none',
+              title: '体积不能小于1'
+            })
+            return;
+          } else {
+            volume--;
+          }
+        }
+        this.setData({
+          estimatedVolume: volume
+        })
+        break;
+    }
+  },
+  numberinput:function(e){
+    console.log(e.currentTarget.dataset.type);
+    console.log(e.detail.value);
   },
   //物品类型选择
   ChooseCheckbox(e) {

@@ -64,4 +64,33 @@ position: relative;
     margin-right: auto;
     
     }
+    radio {
+      position: relative;
+    }
+    radio::before{
+      font-family: "cuIcon";
+      content: "\e645";
+      position: absolute;
+      color: var(--white) !important;
+      top: 70%;
+      margin-top: -6px;
+      right: 3px;
+      font-size: 26rpx;
+      line-height: 4px;
+      pointer-events: none;
+      transform: scale(1, 1);
+      transition: all 0.3s ease-in-out 0s;
+      z-index: 9;
+    }
+    /* 未选中的radio */
+    radio .wx-radio-input{
+      margin: 0;
+      width: 34rpx;
+      height: 34rpx;
+    }
+    radio.radio::before,
+    radio .wx-radio-input::before,
+    radio.radio::before {
+      display: none;
     
+    }

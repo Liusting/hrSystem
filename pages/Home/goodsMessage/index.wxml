@@ -24,45 +24,45 @@
 		<view class="flex justify-between padding-bottom" style="border-bottom:1px solid #eee">
 			<text>物品数量</text>
 			<view>
-				<view class="cu-tag margin-right-sm">
+				<view class="cu-tag margin-right-sm" bindtap="addAndReduce" data-type="number" data-item="reduce">
 					<text class="cuIcon-move"></text>
 				</view>
 				<view class="cu-tag1">
-					<input style="width:40rpx" value="1"></input>
+					<input data-type="number" type="number" style="width:40rpx" maxlength="2"  bindinput="numberinput" value="{{goodNumber}}"></input>
 					<text>件</text>
 				</view>
-				<view class="cu-tag1 margin-left-sm">
-					<text class="cuIcon-add"></text>
+				<view bindtap="addAndReduce" data-type="number" data-item="add" class="cu-tag1 margin-left-sm">
+					<text  class="cuIcon-add"></text>
 				</view>
 			</view>
 		</view>
 		<view class="flex justify-between padding-tb" style="border-bottom:1px solid #eee">
 			<text>预估重量</text>
 			<view>
-				<view class="cu-tag margin-right-sm">
+				<view class="cu-tag margin-right-sm" bindtap="addAndReduce" data-type="weight" data-item="reduce">
 					<text class="cuIcon-move"></text>
 				</view>
 				<view class="cu-tag1">
-					<input style="width:40rpx" value="1"></input>
+					<input data-type="weight" type="number" style="width:40rpx" maxlength="2"  bindinput="numberinput" value="{{estimatedWeight}}"></input>
 					<text>kg</text>
 				</view>
-				<view class="cu-tag1 margin-left-sm">
-					<text class="cuIcon-add"></text>
+				<view bindtap="addAndReduce" data-type="weight" data-item="add" class="cu-tag1 margin-left-sm">
+					<text  class="cuIcon-add"></text>
 				</view>
 			</view>
 		</view>
 		<view class="flex justify-between padding-top">
 			<text>预估体积</text>
 			<view>
-				<view class="cu-tag margin-right-sm">
+				<view class="cu-tag margin-right-sm" bindtap="addAndReduce" data-type="volume" data-item="reduce">
 					<text class="cuIcon-move"></text>
 				</view>
 				<view class="cu-tag1">
-					<input style="width:40rpx" value="1"></input>
+					<input data-type="volume" type="number" style="width:40rpx" maxlength="2"  bindinput="numberinput" value="{{estimatedVolume}}"></input>
 					<text>m³</text>
 				</view>
-				<view class="cu-tag1 margin-left-sm">
-					<text class="cuIcon-add"></text>
+				<view bindtap="addAndReduce" data-type="volume" data-item="add" class="cu-tag1 margin-left-sm">
+					<text  class="cuIcon-add"></text>
 				</view>
 			</view>
 		</view>
