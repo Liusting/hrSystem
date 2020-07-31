@@ -66,6 +66,12 @@ Component({
     }
   },
   methods: {
+    //测试分包
+    test:function(){
+      wx.navigateTo({
+        url: '../../packageA/pages/test/index',
+      })
+    },
     //点击寄件人信息、收件人信息
     addAddress: function (e) {
       let type = e.currentTarget.dataset.type;

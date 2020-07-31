@@ -1,6 +1,5 @@
 {
   "pages": [
-
     "pages/index/index",
     "pages/My/coupon/index",
     "pages/Home/addAddress/index",
@@ -22,6 +21,27 @@
     "pages/My/advice/index",
     "pages/My/aboutOur/index"
   ],
+  "subPackages": [{
+      "root": "packageA",
+      "name": "coupon",
+      "pages": [
+        "pages/test/index"
+      ]
+    },
+    {
+      "root": "packageB",
+      "name": "address",
+      "pages": [
+        "pages/test/index"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": ["packageA"]
+    }
+  },
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示"

@@ -97,6 +97,9 @@ Page({
     })
   },
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中',
+    })
     console.log(options)
     var that = this;
     this.setData({
