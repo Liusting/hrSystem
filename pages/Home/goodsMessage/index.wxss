@@ -1,18 +1,31 @@
-/* pages/Home/goodsMessage/index.wxss
-page{
-  background-color: white;
-} */
-.cu-tag1 {
-  font-size: 24rpx;
-  vertical-align: middle;
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  padding: 0rpx 16rpx;
-  height: 48rpx;
-  font-family: Helvetica Neue, Helvetica, sans-serif;
-  white-space: nowrap;
-  background-color: var(--ghostWhite);
+.noSelect {
+  border: 1px solid #aaaaaa;
+  color: black;
 }
+
+.isSelect {
+  border: 1px solid red;
+  color: red;
+  background-color: #f7e8e7;
+}
+
+.kf_button{
+  padding: 0px 0px;
+  background-color: #e16531;
+  width: 100rpx;
+  height: 100rpx;
+  left:80%;
+  border-radius: 50%;
+  bottom: 230rpx;
+  position: fixed;
+  z-index: 100;
+  box-shadow:  #e16531;
+ }
+.kf_button:not([size='mini']){
+  width:  100rpx;
+}
+ .kf_image{
+  z-index: 9999;
+  width: 60rpx;
+  height: 60rpx;
+ }

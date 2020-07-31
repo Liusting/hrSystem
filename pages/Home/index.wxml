@@ -5,6 +5,7 @@
 		</view>
 	</view>
 </view>
+
 <view class=" margin-sm shadow">
 	<swiper class="screen-swiper round-dot  " indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
 		<swiper-item wx:for="{{imgList}}" wx:key>
@@ -61,7 +62,6 @@
 					地址簿
 				</view>
 			</view>
-
 		</view>
 	</view>
 </view>
@@ -69,53 +69,3 @@
 <view class="flex justify-center">
 	<button class="cu-btn round bg-redOrange lg shadow" bindtap="order">立即下单</button>
 </view>
-
-<view class="cu-modal justify-start bottom-modal {{modalName=='GroupViewModal'?'show':''}}" bindtap="hideModal" style='overflow: hidden;text-align: left;'>
-	<view class="cu-dialog" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
-		<!-- 顶部固定卡片区域 -->
-		<view class="col-2 grid padding">
-			<view bindtap="select" class="flex justify-center">
-				<view class="text-center">
-					<view>寄件人地址</view>
-					<view class="flex justify-center margin-top-xs" wx:if="{{flag}}">
-						<view style="height:2px;width:50px;" class="bg-red round"></view>
-					</view>
-				</view>
-			</view>
-			<view bindtap="select1" class="flex justify-center">
-				<view class="text-center">
-					<view>收件人地址</view>
-					<view class="flex justify-center margin-top-xs" wx:if="{{flag1}}">
-						<view style="height:2px;width:50px;" class="bg-red round"></view>
-					</view>
-				</view>
-			</view>
-		</view>
-		<scroll-view scroll-y style="height:611px">
-			<view wx:for="{{addressList}}" wx:key="item.id">
-				<view class="bg-white margin " style="border-radius:7px">
-					<view class="padding-sm" style="line-height:45rpx" bindtap="selectAddress" data-item="{{item}}">
-						<view class="text-lg text-bold">{{item.addresseeName}},{{item.phoneNumber}}</view>
-						<view>广州博纳信息技术有限公司</view>
-						<view>{{item.provinceName}}{{item.cityName}}{{item.cityName}}{{item.addressdetail}}</view>
-					</view>
-					<view class="margin-lr-sm" style="border-bottom:1px solid #eee;"></view>
-					<view class="flex justify-between align-center padding-sm">
-						<view>
-							<text class="cuIcon-{{item.check?'roundcheckfill':'round'}}"></text>
-							设置默认寄件地址</view>
-						<view>
-							<text  class="margin-right cuIcon-write"><text class="margin-left-xs">编辑</text></text>
-							<text bindtap="deleteAddress"><text class="cuIcon-delete"></text><text class="margin-left-xs">删除</text></text>
-						</view>
-					</view>
-				</view>
-			</view>
-			<!-- <view class='cu-tabbar-height'></view> -->
-		</scroll-view>
-		<view class="cu-bar foot tar bg-white">
-			<button bindtap="addAddress" data-type="0" class="cu-btn bg-redOrange round">新增地址</button>
-		</view>
-	</view>
-</view>
-

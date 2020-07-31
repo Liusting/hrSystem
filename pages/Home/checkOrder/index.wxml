@@ -16,12 +16,12 @@
 							<view class="text-sm margin-top text-gray">请填写真实姓名</view>
 						</view>
 						<view wx:else>
-							<view>{{sendInfo.addresseeName}} {{sendInfo.phoneNumber}}</view>
+							<view class="text-lg text-bold text-black">{{sendInfo.addresseeName}} {{sendInfo.phoneNumber}}</view>
 							<view>{{sendInfo.provinceName}}{{sendInfo.cityName}}{{sendInfo.cityName}}{{sendInfo.addressdetail}}</view>
 						</view>
 					</view>
 				</view>
-				<view class="padding-left-sm text-blue" style="border-left:1px solid #eee" bindtap="sendPost">
+				<view data-type="0" class="padding-left-sm text-blue" style="border-left:1px solid #eee" bindtap="addressListClick">
 					地址簿
 				</view>
 			</view>
@@ -42,12 +42,12 @@
 								<view class="text-sm margin-top text-gray">请填写真实姓名</view>
 							</view>
 							<view wx:else>
-								<view>{{receiveInfo.addresseeName}} {{receiveInfo.phoneNumber}}</view>
+								<view class="text-lg text-bold text-black">{{receiveInfo.addresseeName}} {{receiveInfo.phoneNumber}}</view>
 								<view>{{receiveInfo.provinceName}}{{receiveInfo.cityName}}{{receiveInfo.cityName}}{{receiveInfo.addressdetail}}</view>
 							</view>
 						</view>
 					</view>
-					<view class="padding-left-sm text-blue" style="border-left:1px solid #eee" bindtap="receive">
+					<view data-type="1" class="padding-left-sm text-blue" style="border-left:1px solid #eee" bindtap="addressListClick">
 						地址簿
 					</view>
 				</view>
@@ -85,21 +85,44 @@
 		</view>
 	</view>
 
-	<view class="bg-white  margin-sm padding" style="border-radius:7px">
+	<view wx:if="{{flag1}}" class="bg-white  margin-sm padding" style="border-radius:7px">
 		<view class="flex justify-start text-bold text-lg margin-bottom">
 			<text>服务类型</text>
 		</view>
+		<view class="padding-tb-sm">
+			<label class="flex justify-between align-center flex-sub">
+				<view class="flex-sub">
+					<view class="text-lg">专车直发</view>
+					<view class="text-sm text-gray">平台专车配送，速度快</view>
+				</view>
+				<view class="flex  align-center">
+					<text class="text-price text-redOrange text-bold text-lg margin-right-sm">{{499}}</text>
+				</view>
+			</label>
+		</view>
 
+	</view>
+
+
+
+	<view wx:if="{{flag}}" class="bg-white  margin-sm padding" style="border-radius:7px">
+		<view class="flex justify-start text-bold text-lg margin-bottom">
+			<text>服务类型</text>
+		</view>
 		<radio-group class="block">
-			<view class="padding-tb-sm" wx:for="{{3}}" wx:key>
+			<view class="padding-tb-sm" wx:for="{{serverList}}" wx:key>
 				<label class="flex justify-between align-center flex-sub">
 					<view class="flex-sub">
-						<view class="text-lg">专车直发</view>
-						<view class="text-sm text-gray">预计<text class="text-red">7月1日</text>送达</view>
+						<view class="text-lg">{{item.name}}</view>
+						<view class="text-sm text-gray">预计<text class="text-red">{{item.time}}</text>送达</view>
 					</view>
 					<view class="flex  align-center">
-						<text class="text-price text-redOrange text-bold text-lg margin-right-sm">399</text>
-						<radio class="round"></radio>
+						<text class="text-price text-redOrange text-bold text-lg margin-right-sm">{{item.price}}</text>
+
+						<view class="text-xxl">
+							<text bindtap="serverTypeSelect" data-id="{{item.id}}" class="{{selectId == item.id?'cuIcon-roundcheckfill text-redOrange':'cuIcon-round text-gray'}}"></text>
+						</view>
+						<!-- <radio class="round"></radio> -->
 					</view>
 				</label>
 			</view>
@@ -109,7 +132,12 @@
 
 	<view class="bg-white  margin-sm " style="border-radius:7px">
 		<view class="flex justify-between align-center  padding">
-			<view>声明价值<text class="margin-left-xs cuIcon-questionfill text-red"></text></view>
+			<view class="flex align-center">
+				<text>声明价值</text>
+				<view class="margin-left-xs text-xl">
+					<text class="cuIcon-questionfill text-red"></text>
+				</view>
+			</view>
 			<view class="flex align-center">
 				<input class="nickname_input text-sm" placeholder-class="nickname_placeholder" style="width:420rpx" placeholder="未保价物品最高赔付7倍运费，建议保价"></input><text class="margin-left-xs text-bold">元</text>
 			</view>
@@ -118,6 +146,12 @@
 			<view>增值服务</view>
 			<view class="text-gray" bindtap="showModal" data-target="serviceModal">
 				<text>代收货款，冷链运输，签到返还..</text><text class="cuIcon-right"></text>
+			</view>
+		</view>
+		<view wx:if="{{flag}}" class="flex justify-between align-center  padding">
+			<view>回单签收</view>
+			<view>
+				<switch class="red sm" type="switch" checked="{{isChecked6}}" bindchange="changeSwitch6" />
 			</view>
 		</view>
 	</view>
@@ -180,7 +214,9 @@
 					<view>
 						<view bindtap="hourClick12" class="padding justify-between flex align-center" wx:for="{{multiArray[1]}}" wx:key="{{index}}" data-index="{{index}}" data-item="{{item}}">
 							<text class="{{hourIndex1==index?'text-red':''}}">{{item}}</text>
-							<text class="text-red text-xl cuIcon-{{hourIndex1==index?'roundcheckfill':''}}"></text>
+							<view class="text-xl">
+								<text class="text-red  cuIcon-{{hourIndex1==index?'roundcheckfill':''}}"></text>
+							</view>
 						</view>
 					</view>
 				</scroll-view>
@@ -379,56 +415,8 @@
 	</view>
 </view>
 
-
-<view class="cu-modal justify-start bottom-modal {{modalName=='GroupViewModal'?'show':''}}" bindtap="hideModal" style='overflow: hidden;text-align: left;'>
-	<view class="cu-dialog" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
-		<!-- 顶部固定卡片区域 -->
-		<view class="col-2 grid padding">
-			<view bindtap="sendSelect" class="flex justify-center">
-				<view class="text-center">
-					<view>寄件人地址</view>
-					<view class="flex justify-center margin-top-xs" wx:if="{{flag3}}">
-						<view style="height:2px;width:50px;" class="bg-red round"></view>
-					</view>
-				</view>
-			</view>
-			<view bindtap="receiveSelect" class="flex justify-center">
-				<view class="text-center">
-					<view>收件人地址</view>
-					<view class="flex justify-center margin-top-xs" wx:if="{{flag4}}">
-						<view style="height:2px;width:50px;" class="bg-red round"></view>
-					</view>
-				</view>
-			</view>
-		</view>
-		<scroll-view scroll-y style="height:611px">
-			<view wx:for="{{addressList}}" wx:key="item.id">
-				<view class="bg-white margin " style="border-radius:7px">
-					<view class="padding-sm" style="line-height:45rpx" bindtap="selectAddress" data-item="{{item}}">
-						<view class="text-lg text-bold">{{item.addresseeName}},{{item.phoneNumber}}</view>
-						<view>广州博纳信息技术有限公司</view>
-						<view>{{item.provinceName}}{{item.cityName}}{{item.cityName}}{{item.addressdetail}}</view>
-					</view>
-					<view class="margin-lr-sm" style="border-bottom:1px solid #eee;"></view>
-					<view class="flex justify-between align-center padding-sm">
-						<view>
-							<text class="cuIcon-{{item.check?'roundcheckfill':'round'}}"></text>
-							设置默认寄件地址</view>
-						<view>
-							<text class="margin-right">编辑</text>
-							<text bindtap="deleteAddress" data-id="{{item.id}}">删除</text>
-						</view>
-					</view>
-				</view>
-			</view>
-			<!-- <view class='cu-tabbar-height'></view> -->
-		</scroll-view>
-		<view class="cu-bar foot tar bg-white">
-			<button bindtap="addAddress" data-type="0" class="cu-btn bg-red  round">新增地址</button>
-		</view>
-	</view>
-</view>
-
 <button class="kf_button" open-type="contact" session-from="weapp">
-	<image class="kf_image" mode="aspectFill" src="https://img.alicdn.com/imgextra/i3/1073981443/O1CN01nAQVRt1MWw8BW0spS_!!1073981443.png"></image>
+	<view class="flex justify-center align-center" style="height:100%">
+		<image class="kf_image" mode="aspectFit" src="https://m.qpic.cn/psc?/V13054I60qvHvi/ruAMsa53pVQWN7FLK88i5ojMOq9OUTcdXQteDmooN9qifoMkbvp7EXR3jwq8vzzcie98mF88ELtIIElBwrfMfIUBgM6JcroaSNR3*Jr*7tg!/mnull&bo=MAAwADAAMAADCSw!&rf=photolist&t=5"></image>
+	</view>
 </button>

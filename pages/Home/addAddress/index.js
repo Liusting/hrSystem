@@ -15,21 +15,61 @@ Page({
     type: '',
     addressSelectColor: false,
     tagList: [{
-        id: 1,
-        name: '家'
+        id: 0,
+        name: '家',
+        checked:false
       },
       {
+        id: 1,
+        name: '公司',
+        checked:false
+      }, {
         id: 2,
-        name: '公司'
+        name: '学校',
+        checked:false
       }, {
         id: 3,
-        name: '学校'
-      }, {
-        id: 4,
-        name: '公寓'
+        name: '公寓',
+        checked:false
       }
     ],
     isSelect:false
+  },
+  //输入标签
+  tagInput:function(e){
+    console.log(e.detail.value);
+    let items = this.data.tagList;
+    let length = items.length-1;
+    items.push(
+      {
+        id:length+1,
+        name:e.detail.value,
+        checked:true,
+        closed:true
+      }
+    )
+    this.setData({
+      tagList: items
+    })
+  },
+  chooseTag(e) {
+    let items = this.data.tagList;
+    let id = e.currentTarget.dataset.id;
+    for (let i = 0, lenI = items.length; i < lenI; ++i) {
+      if (items[i].id == id) {
+        items[i].checked = !items[i].checked;
+        break;
+      }
+    }
+    this.setData({
+      tagList: items
+    })
+  },
+  //点击添加标签
+  closeTag:function(e){
+    let id = e.currentTarget.dataset.id;
+    let items = this.data.tagList;
+    items.splice(id,1);
   },
   isSelect: function () {
     this.setData({

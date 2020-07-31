@@ -69,7 +69,7 @@ login:function(){
     switch (id) {
       case "1":
         wx.navigateTo({
-          url: '../Home/addressList/index',
+          url: '../Home/addressList/index?type='+0,
         })
         break;
       case "2":

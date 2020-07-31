@@ -30,14 +30,8 @@ Component({
         url: 'http://img2.imgtn.bdimg.com/it/u=3835153038,3414811458&fm=15&gp=0.jpg'
       }
     ],
-    modalName: '',
-    flag: '',
-    flag1: '',
-    addressList: [],
-    sendInfo: {},
-    receiveInfo: {},
- 
-    
+    sendInfo: {}, //寄件人信息
+    receiveInfo: {}, //收件人信息
   },
   ready: function () {
     var that = this;
@@ -49,104 +43,52 @@ Component({
         })
       }
     });
-  
+  },
+  // 组件所在页面的生命周期函数
+  pageLifetimes: {
+    //页面展示被执行
+    show: function () {
+      var pages = getCurrentPages();
+      var currPage = pages[pages.length - 1]; //当前页面
+      //在index定义了数据，数据为了避免报错
+      let json = currPage.data.selectAddressData;
+      if (json.type == 2) {
+        return;
+      } else if (json.type == 0) {
+        this.setData({
+          sendInfo: json.item
+        })
+      } else if (json.type == 1) {
+        this.setData({
+          receiveInfo: json.item
+        })
+      }
+    }
   },
   methods: {
-    //添加地址
+    //点击寄件人信息、收件人信息
     addAddress: function (e) {
       let type = e.currentTarget.dataset.type;
       wx.navigateTo({
         url: '../Home/addAddress/index?type=' + type,
       })
     },
-    //删除地址
-    deleteAddress: function (e) {
-      console.log(e)
-    },
-    //选择地址
-    selectAddress: function (e) {
-      let that = this;
-      if (this.data.flag) {
-        that.setData({
-          sendInfo: e.currentTarget.dataset.item
-        })
-      } else if (this.data.flag1) {
-        that.setData({
-          receiveInfo: e.currentTarget.dataset.item
-        })
-      }
-      this.hideModal()
-    },
-    //点击寄件人信息
+    //点击寄件人地址簿
     sendPost: function () {
-      this.setData({
-        modalName: 'GroupViewModal',
-        flag: true,
-        flag1: false
+      wx.navigateTo({
+        url: '../Home/addressList/index?type=' + 0,
       })
-      this.select();
     },
-    //点击收件人信息
+    //点击收件人地址簿
     receive: function () {
-      this.setData({
-        modalName: 'GroupViewModal',
-        flag: false,
-        flag1: true
-      })
-      this.select1();
-    },
-    //点击寄件人
-    select: function () {
-      var that = this;
-      this.setData({
-        flag: true,
-        flag1: false,
-      })
-      wx.request({
-        url: 'http://mock-api.com/PKeZpPz0.mock/sendPost',
-        success(res) {
-          console.log(res.data);
-          that.setData({
-            addressList: res.data
-          })
-        }
-      })
-    },
-    //点击收件人
-    select1: function () {
-      var that = this;
-      wx.request({
-        url: 'http://mock-api.com/PKeZpPz0.mock/receive',
-        success(res) {
-          console.log(res.data);
-          that.setData({
-            addressList: res.data
-          })
-        }
-      })
-      this.setData({
-        flag: false,
-        flag1: true
+      wx.navigateTo({
+        url: '../Home/addressList/index?type=' + 1,
       })
     },
     //立即下单
     order: function () {
       wx.navigateTo({
         url: '../Home/checkOrder/index',
-      })
-      // if(JSON.stringify(this.data.sendInfo)==='{}'){
-      //   this.sendPost()
-      // }else if(JSON.stringify(this.data.receiveInfo)==='{}'){
-      //   this.receive()
-      // }else{
-      //   wx.navigateTo({
-      //     url: '../Home/checkOrder/index',
-      //   })
-      // }
-    },
-    hideModal: function () {
-      this.setData({
-        modalName: ''
       })
     },
     /**

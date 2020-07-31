@@ -15,41 +15,41 @@ Page({
     min: 0, //最少字数
     max: 40, //最多字数 (根据自己需求改变) 
     goodsType: [{
-      value: 0,
+      id: 1,
       name: '文件证照',
-      checked: false,
     }, {
-      value: 1,
+      id: 2,
       name: '数码产品',
-      checked: false,
     }, {
-      value: 2,
+      id: 3,
       name: '珠宝首饰',
-      checked: false,
     }, {
-      value: 3,
+      id: 4,
       name: '美妆日用',
-      checked: false,
     }, {
-      value: 4,
+      id: 5,
       name: '服饰鞋帽',
-      checked: false,
     }, {
-      value: 5,
+      id: 6,
       name: '易碎物品',
-      checked: false,
     }, {
-      value: 6,
+      id: 7,
       name: '水果生鲜',
-      checked: false,
     }, {
-      value: 7,
+      id: 8,
       name: '其他',
-      checked: false,
     }],
+    selectId: '', //被选中id值
     goodNumber: 1,
     estimatedWeight: 1,
-    estimatedVolume: 1
+    estimatedVolume: 1,
+    isshow:false
+  },
+  //点击确认
+  confirm:function(){
+    wx.navigateBack({
+      delta: 1,
+    })
   },
   addAndReduce: function (e) {
     let type = e.currentTarget.dataset.type;
@@ -58,7 +58,16 @@ Page({
       case 'number':
         let number = this.data.goodNumber;
         if (item == 'add') {
-          number++;
+          if (number == 99) {
+            wx.showToast({
+              icon: 'none',
+              title: '数量不能大于100'
+            })
+            return;
+          } else {
+            number++;
+          }
+
         } else if (item == 'reduce') {
           if (number == 1) {
             wx.showToast({
@@ -77,7 +86,15 @@ Page({
       case 'weight':
         let weight = this.data.estimatedWeight;
         if (item == 'add') {
-          weight++;
+          if (weight == 99) {
+            wx.showToast({
+              icon: 'none',
+              title: '重量不能大于100'
+            })
+            return;
+          } else {
+            weight++;
+          }
         } else if (item == 'reduce') {
           if (weight == 1) {
             wx.showToast({
@@ -96,7 +113,15 @@ Page({
       case 'volume':
         let volume = this.data.estimatedVolume;
         if (item == 'add') {
-          volume++;
+          if (volume == 99) {
+            wx.showToast({
+              icon: 'none',
+              title: '体积不能大于100'
+            })
+            return;
+          } else {
+            volume++;
+          }
         } else if (item == 'reduce') {
           if (volume == 1) {
             wx.showToast({
@@ -114,24 +139,73 @@ Page({
         break;
     }
   },
-  numberinput:function(e){
-    console.log(e.currentTarget.dataset.type);
-    console.log(e.detail.value);
+  //点击输入框输入
+  numberinput: function (e) {
+    console.log(e);
+    let type = e.currentTarget.dataset.type;
+    let value = e.detail.value;
+    switch (type) {
+      case 'number':
+        if (value == 0 || value == "") {
+          wx.showToast({
+            icon: 'none',
+            title: '数量不能为0',
+          })
+          this.setData({
+            goodNumber: 1
+          })
+        } else {
+          this.setData({
+            goodNumber: value
+          })
+        }
+        break;
+      case 'weight':
+        if (value == 0 || value == "") {
+          wx.showToast({
+            icon: 'none',
+            title: '数量不能为0',
+          })
+          this.setData({
+            estimatedWeight: 1
+          })
+        } else {
+          this.setData({
+            estimatedWeight: value
+          })
+        }
+        break;
+      case 'volume':
+        if (value == 0 || value == "") {
+          wx.showToast({
+            icon: 'none',
+            title: '数量不能为0',
+          })
+          this.setData({
+            estimatedVolume: 1
+          })
+        } else {
+          this.setData({
+            estimatedVolume: value
+          })
+        }
+        break;
+    }
   },
   //物品类型选择
   ChooseCheckbox(e) {
-    console.log(e);
-    let items = this.data.goodsType;
-    let values = e.currentTarget.dataset.value;
-    for (let i = 0, lenI = items.length; i < lenI; ++i) {
-      if (items[i].value == values) {
-        items[i].checked = !items[i].checked;
-        break
-      }
+    let id = e.currentTarget.dataset.id;
+    if(id == 8){
+      this.setData({
+        isshow:true,
+        selectId: id
+      })
+    }else{
+      this.setData({
+        isshow:false,
+        selectId: id
+      })
     }
-    this.setData({
-      goodsType: items
-    })
   },
   //字数限制  
   inputs: function (e) {

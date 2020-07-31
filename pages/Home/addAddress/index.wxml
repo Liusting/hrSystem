@@ -9,30 +9,43 @@
 	<view class="margin-xs padding-sm text-bold text-xl">
 		联系人信息
 	</view>
-	<view class="margin-xs padding-sm flex align-center" style="border-bottom:1px solid #eee">
+	<view class="flex padding-tb margin-lr-sm align-center" style="border-bottom:1px solid #eee">
 		<input name="name" placeholder="真实姓名"></input>
 		<input type="number" name="phoneNumber" placeholder="电话"></input>
 	</view>
-	<view class="margin-xs padding-sm flex align-center" style="border-bottom:1px solid #eee">
+	<view class="margin-lr-sm padding-tb flex align-center" style="border-bottom:1px solid #eee">
 		<view class="section">
 			<picker mode="region" name="address" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
 				<view class="picker text-{{addressSelectColor?'black':'gray'}}">{{region[0]}}/{{region[1]}}/{{region[2]}}</view>
 			</picker>
 		</view>
 	</view>
-	<view class="margin-xs padding-sm flex" style="border-bottom:1px solid #eee">
-		<textarea style="height:150rpx;margin-top:5rpx" placeholder="街道、楼牌号等" name="addressDetail"></textarea>
+	<view class="margin-lr-sm padding-tb flex align-center justify-between" style="border-bottom:1px solid #eee">
+		<input class="input" selection-end="-1" selection-start="-1" cursor="-1" placeholder="详细地址(例如: xx街道xxx号)" name="addressDetail"></input>
+		<text class="cuIcon-locationfill text-orange"></text>
+	</view>
+	<view class="margin-lr-sm padding-tb flex align-center flex-sub" style="border-bottom:1px solid #eee">
+		<input class="input" placeholder="公司名称(选填)" name="company"></input>
 	</view>
 
-	<view class="margin-sm padding-sm flex align-center" style="border-bottom:1px solid #eee">
-		<input placeholder="公司名称(选填)" name="company"></input>
-	</view>
-	<view class="margin-sm padding-sm flex align-center" style="border-bottom:1px solid #eee">
-		<view class=" margin-right-sm">标签</view>
-		<view wx:for="{{tagList}}" wx:key="id">
-			<view  class="cu-tag line-gray radius margin-left-xs">{{item.name}}</view>
+	<view class="flex align-center justify-between margin-lr-sm padding-tb" style="border-bottom:1px solid #eee">
+		<input bindblur="tagInput" placeholder="请输入标签" name="tag" class="input"></input>
+		<view class="flex text-xl">
+			<text class="cuIcon-roundadd"></text>
 		</view>
-		<view class="cu-tag line-gray radius margin-left-xs"><text class="cuIcon-add"></text></view>
+	</view>
+	<view class="margin-lr-sm padding-tb">
+		<view class="flex align-center ">
+			<view wx:for="{{tagList}}" wx:key="id">
+				<view bindtap="chooseTag" data-id="{{item.id}}" class="cu-tag {{item.checked?'bg-redOrange':'line-gray'}} radius margin-right-xs">
+				{{item.name}}<text bindtap="closeTag" data-id="{{item.id}}" class="cuIcon-{{item.closed?'close':''}}"></text>
+				</view>
+			</view>
+			<!-- <view bindtap="addTag" class="cu-tag line-gray radius flex align-center">
+			  <text>重要客户</text>
+				<text class="cuIcon-close"></text>
+			</view> -->
+		</view>
 	</view>
 	<view class="flex justify-between padding-sm align-center">
 		<view class="flex align-center">

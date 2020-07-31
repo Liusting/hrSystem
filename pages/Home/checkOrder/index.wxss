@@ -1,21 +1,23 @@
 @import "/colorui/coupon.wxss";
 .kf_button{
   padding: 0px 0px;
-  background-color: rgb(255, 255, 255);
+  background-color: #e16531;
   width: 100rpx;
   height: 100rpx;
   left:80%;
   border-radius: 50%;
   bottom: 230rpx;
   position: fixed;
+  z-index: 100;
+  box-shadow:  #e16531;
  }
 .kf_button:not([size='mini']){
   width:  100rpx;
 }
  .kf_image{
   z-index: 9999;
-  width: 100rpx;
-  height: 100rpx;
+  width: 60rpx;
+  height: 60rpx;
  }
  .nickname_placeholder, .nickname_input {
   text-align: right;

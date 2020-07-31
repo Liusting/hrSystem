@@ -21,38 +21,69 @@ Page({
     startDate: '',
     currentTab: 0,
     hourIndex1: 0,
-    flag3: '',
-    flag4: '',
-    flag5:'',
-    flag6:false,
-    flag7:true,
-    addressList: [],
+    flag5: '',
+    flag6: false,
+    flag7: true,
     sendInfo: {},
     receiveInfo: {},
     time: '',
+    selectAddressData: {
+      type: 2,
+      item: ''
+    },
     html: '<div class="div_class" style="line-height: 30px;">&nbsp;本报北京6月20日电 十三届全国人大常委会第十九次会议20日上午在北京人民大会堂闭幕。会议经表决，通过了公职人员政务处分法、新修订的档案法、新修订的人民武装警察法。国家主席习近平分别签署第46、47、48号主席令予以公布。栗战书委员长主持会议常委会组成人员160人出席会议，出席人数符合法定人数。会议表决通过了全国人大常委会关于加入《武器贸易条约》的决定，决定加入这个条约。本报北京6月20日电 十三届全国人大常委会第十九次会议20日上午在北京人民大会堂闭幕。会议经表决，通过了公职人员政务处分法、新修订的档案法、新修订的人民武装警察法。国家主席习近平分别签署第46、47、48号主席令予以公布。栗战书委员长主持会议常委会组成人员160人出席会议，出席人数符合法定人数。会议表决通过了全国人大常委会关于加入《武器贸易条约》的决定，决定加入这个条约本报北京6月20日电 十三届全国人大常委会第十九次会议20日上午在北京人民大会堂闭幕。会议经表决，通过了公职人员政务处分法、新修订的档案法、新修订的人民武装警察法。国家主席习近平分别签署第46、47、48号主席令予以公布。<br>&nbsp;栗战书委员长主持会议常委会组成人员160人出席会议，出席人数符合法定人数。会议表决通过了全国人大常委会关于加入《武器贸易条约》的决定，决定加入这个条约本报北京6月20日电 十三届全国人大常委会第十九次会议20日上午在北京人民大会堂闭幕。会议经表决，通过了公职人员政务处分法、新修订的档案法、新修订的人民武装警察法。国家主席习近平分别签署第46、47、48号主席令予以公布。栗战书委员长主持会议常委会组成人员160人出席会议，出席人数符合法定人数。会议表决通过了全国人大常委会关于加入《武器贸易条约》的决定，决定加入这个条约本报北京6月20日电 十三届全国人大常委会第十九次会议20日上午在北京人民大会堂闭幕。会议经表决，通过了公职人员政务处分法、新修订的档案法、新修订的人民武装警察法。国家主席习近平分别签署第46、47、48号主席令予以公布。栗战书委员长主持会议常委会组成人员160人出席会议，出席人数符合法定人数。会议表决通过了全国人大常委会关于加入《武器贸易条约》的决定，决定加入这个条约本报北京6月20日电 十三届全国人大常委会第十九次会议20日上午在北京人民大会堂闭幕。会议经表决，通过了公职人员政务处分法、新修订的档案法、新修订的人民武装警察法。国家主席习近平分别签署第46、47、48号主席令予以公布。栗战书委员长主持会议常委会组成人员160人出席会议，出席人数符合法定人数。会议表决通过了全国人大常委会关于加入《武器贸易条约》的决定，决定加入这个条约本报北京6月20日电 十三届全国人大常委会第十九次会议20日上午在北京人民大会堂闭幕。会议经表决，通过了公职人员政务处分法、新修订的档案法、新修订的人民武装警察法。国家主席习近平分别签署第46、47、48号主席令予以公布。栗战书委员长主持会议常委会组成人员160人出席会议，出席人数符合法定人数。会议表决通过了全国人大常委会关于加入《武器贸易条约》的决定，决定加入这个条约本报北京6月20日电 十三届全国人大常委会第十九次会议20日上午在北京人民大会堂闭幕。会议经表决，通过了公职人员政务处分法、新修订的档案法、新修订的人民武装警察法。国家主席习近平分别签署第46、47、48号主席令予以公布。栗战书委员长主持会议常委会组成人员160人出席会议，出席人数符合法定人数。会议表决通过了全国人大常委会关于加入《武器贸易条约》的决定，决定加入这个条约本报北京6月20日电 十三届全国人大常委会第十九次会议20日上午在北京人民大会堂闭幕。会议经表决，通过了公职人员政务处分法、新修订的档案法、新修订的人民武装警察法。国家主席习近平分别签署第46、47、48号主席令予以公布。栗战书委员长主持会议常委会组成人员160人出席会议，出席人数符合法定人数。会议表决通过了全国人大常委会关于加入《武器贸易条约》的决定，决定加入这个条约本报北京6月20日电 十三届全国人大常委会第十九次会议20日上午在北京人民大会堂闭幕。会议经表决，通过了公职人员政务处分法、新修订的档案法、新修订的人民武装警察法。国家主席习近平分别签署第46、47、48号主席令予以公布。栗战书委员长主持会议常委会组成人员160人出席会议，出席人数符合法定人数。会议表决通过了全国人大常委会关于加入《武器贸易条约》的决定，决定加入这个条约本报北京6月20日电 十三届全国人大常委会第十九次会议20日上午在北京人民大会堂闭幕。会议经表决，通过了公职人员政务处分法、新修订的档案法、新修订的人民武装警察法。国家主席习近平分别签署第46、47、48号主席令予以公布。栗战书委员长主持会议常委会组成人员160人出席会议，出席人数符合法定人数。会议表决通过了全国人大常委会关于加入《武器贸易条约》的决定，决定加入这个条约</div>',
-    typeList:[
-      {
-        id:1,
-        name:'签到返还',
-        checked: false,
-        describe:'向收件客户签名的收条或收货单等单据返还寄件客户的服务。',
-        imageUrl:'https://m.qpic.cn/psc?/V13054I60qvHvi/ruAMsa53pVQWN7FLK88i5otTxMw9V1IPtm**baj9S0mOSJf6*wey8NIRsDFug5q7MbiMa2OeHA1fpzcMl785s0NgUoNIuldYVK9apQVfmHE!/mnull&bo=lQCAAJUAgAADCSw!&rf=photolist&t=5'
-      },{
-        id:2,
-        name:'冷链运输',
-        checked: false,
-        describe:'为食品&医药冷链客户提供专业的冷运服务。',
-        imageUrl:'https://m.qpic.cn/psc?/V13054I60qvHvi/ruAMsa53pVQWN7FLK88i5m3wE4xjOZ58cXMI7oEWo83Xaum4vysB2lEW4OTyfcx*x6nP.LYg0bEZi.lF8kDOaBjahvNhw.Agp1RIfUZLPpc!/mnull&bo=gACAAIAAgAADCSw!&rf=photolist&t=5'
-      },{
-        id:3,
-        name:'代收货款',
-        checked: false,
-        describe:'应寄件客户要求，代向收件客户收取运输货物的款项。',
-        imageUrl:'https://m.qpic.cn/psc?/V13054I60qvHvi/ruAMsa53pVQWN7FLK88i5otTxMw9V1IPtm**baj9S0n*NnDbLAexYdFmyKp490zjdlt68nOeevAf3mAw68yt9wdRhYPiv5vtkdUkWqPVREI!/mnull&bo=gACAAIAAgAADCSw!&rf=photolist&t=5'
-      }
-    ]
+    typeList: [{
+      id: 1,
+      name: '签到返还',
+      checked: false,
+      describe: '向收件客户签名的收条或收货单等单据返还寄件客户的服务。',
+      imageUrl: 'https://m.qpic.cn/psc?/V13054I60qvHvi/ruAMsa53pVQWN7FLK88i5otTxMw9V1IPtm**baj9S0mOSJf6*wey8NIRsDFug5q7MbiMa2OeHA1fpzcMl785s0NgUoNIuldYVK9apQVfmHE!/mnull&bo=lQCAAJUAgAADCSw!&rf=photolist&t=5'
+    }, {
+      id: 2,
+      name: '冷链运输',
+      checked: false,
+      describe: '为食品&医药冷链客户提供专业的冷运服务。',
+      imageUrl: 'https://m.qpic.cn/psc?/V13054I60qvHvi/ruAMsa53pVQWN7FLK88i5m3wE4xjOZ58cXMI7oEWo83Xaum4vysB2lEW4OTyfcx*x6nP.LYg0bEZi.lF8kDOaBjahvNhw.Agp1RIfUZLPpc!/mnull&bo=gACAAIAAgAADCSw!&rf=photolist&t=5'
+    }, {
+      id: 3,
+      name: '代收货款',
+      checked: false,
+      describe: '应寄件客户要求，代向收件客户收取运输货物的款项。',
+      imageUrl: 'https://m.qpic.cn/psc?/V13054I60qvHvi/ruAMsa53pVQWN7FLK88i5otTxMw9V1IPtm**baj9S0n*NnDbLAexYdFmyKp490zjdlt68nOeevAf3mAw68yt9wdRhYPiv5vtkdUkWqPVREI!/mnull&bo=gACAAIAAgAADCSw!&rf=photolist&t=5'
+    }],
+    selectId: 1,
+    serverList: [{
+      id: 1,
+      name: '专车直发',
+      time: '6月3日',
+      price: 499
+    }, {
+      id: 2,
+      name: '限时快运',
+      time: '6月3日',
+      price: 699
+    }, {
+      id: 3,
+      name: '快递小件',
+      time: '6月3日',
+      price: 399
+    }]
   },
+  //点击地址簿
+  addressListClick: function (e) {
+    wx.navigateTo({
+      url: '../../Home/addressList/index?type=' + e.currentTarget.dataset.type
+    })
+  },
+  //服务类型选择
+  serverTypeSelect: function (e) {
+    console.log(e)
+    let id = e.currentTarget.dataset.id;
+    this.setData({
+      selectId: id
+    })
+  },
+  //增值服务多选
   ChooseCheckbox(e) {
     let items = this.data.typeList;
     let id = e.currentTarget.dataset.id;
@@ -67,112 +98,28 @@ Page({
     })
   },
   //点击货到付款
-  cashonDelivery:function(){
+  cashonDelivery: function () {
     this.setData({
-      flag6:true,
-      flag7:false
+      flag6: true,
+      flag7: false
     })
   },
   //点击寄付现结
-  postCash:function(){
+  postCash: function () {
     this.setData({
-      flag6:false,
-      flag7:true
+      flag6: false,
+      flag7: true
     })
   },
   //阅读
-  bottom:function(e){
-  let id = e.currentTarget.dataset.btn;
-    if(id==1){
+  bottom: function (e) {
+    let id = e.currentTarget.dataset.btn;
+    if (id == 1) {
       this.setData({
-        flag5:true
+        flag5: true
       })
     }
   },
-  //选择地址
-  selectAddress: function (e) {
-    let that = this;
-    if (this.data.flag3) {
-      that.setData({
-        sendInfo: e.currentTarget.dataset.item
-      })
-    } else if (this.data.flag4) {
-      that.setData({
-        receiveInfo: e.currentTarget.dataset.item
-      })
-    }
-    this.hideModal()
-  },
-  sendSelect:function(){
-    this.setData({
-      flag3: true,
-      flag4: false
-    })
-    var that = this;
-    wx.request({
-      url: 'http://mock-api.com/PKeZpPz0.mock/sendPost',
-      success(res) {
-        console.log(res.data);
-        that.setData({
-          addressList: res.data
-        })
-      }
-    })
-  },
-  receiveSelect:function(){
-    this.setData({
-      flag3: false,
-      flag4: true
-    })
-    var that = this;
-    wx.request({
-      url: 'http://mock-api.com/PKeZpPz0.mock/receive',
-      success(res) {
-        console.log(res.data);
-        that.setData({
-          addressList: res.data
-        })
-      }
-    })
-  },
-  //点击寄件人信息
-  sendPost: function () {
-    var that = this;
-    this.setData({
-      modalName: 'GroupViewModal',
-      flag3: true,
-      flag4: false
-    })
-    wx.request({
-      url: 'http://mock-api.com/PKeZpPz0.mock/sendPost',
-      success(res) {
-        console.log(res.data);
-        that.setData({
-          addressList: res.data
-        })
-      }
-    })
-  },
-  //点击收件人信息
-  receive: function () {
-    this.setData({
-      modalName: 'GroupViewModal',
-      flag3: false,
-      flag4: true
-    })
-    var that = this;
-    wx.request({
-      url: 'http://mock-api.com/PKeZpPz0.mock/receive',
-      success(res) {
-        console.log(res.data);
-        that.setData({
-          addressList: res.data
-        })
-      }
-    })
-  },
-
-
   //确定
   confirm: function () {
     var temp = this.data.multiArray;
@@ -226,13 +173,13 @@ Page({
     })
     this.hideModal()
   },
-    //添加地址
-    addAddress: function (e) {
-      let type = e.currentTarget.dataset.type;
-      wx.navigateTo({
-        url: '../../Home/addAddress/index?type=' + type,
-      })
-    },
+  //添加地址
+  addAddress: function (e) {
+    let type = e.currentTarget.dataset.type;
+    wx.navigateTo({
+      url: '../../Home/addAddress/index?type=' + type,
+    })
+  },
   //立即支付
   pay: function (e) {
     this.setData({
@@ -358,7 +305,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var pages = getCurrentPages();
+    var currPage = pages[pages.length - 1]; //当前页面
+    //在data定义了数据，数据为了避免报错
+    let json = currPage.data.selectAddressData;
+    if (json.type == 2) {
+      return;
+    } else if (json.type == 0) {
+      this.setData({
+        sendInfo: json.item
+      })
+    } else if (json.type == 1) {
+      this.setData({
+        receiveInfo: json.item
+      })
+    }
   },
 
   /**

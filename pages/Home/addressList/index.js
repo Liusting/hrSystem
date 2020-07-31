@@ -23,12 +23,38 @@ Page({
       }
     ],
     allOrder: [],
-    currtab: '1',
+    currtab: '',
+  },
+  //选择地址
+  selectAddress: function (e) {
+    var pages = getCurrentPages();
+    var prevPage = pages[pages.length - 2]; //上一个页面
+    //直接调用上一个页面的setData()方法，把数据存到上一个页面中去
+    prevPage.setData({
+      selectAddressData: {
+        type: this.data.currtab,
+        item: e.currentTarget.dataset.item
+      }
+    })
+    wx.navigateBack({ //返回
+      delta: 1
+    })
+    // let that = this;
+    // if (this.data.flag) {
+    //   that.setData({
+    //     sendInfo: e.currentTarget.dataset.item
+    //   })
+    // } else if (this.data.flag1) {
+    //   that.setData({
+    //     receiveInfo: e.currentTarget.dataset.item
+    //   })
+    // }
+    // this.hideModal()
   },
   //默认寄件地址
-    // 单选按钮事件
-    radioChange(e){
-      console.log('单选:', e.detail.value)
+  // 单选按钮事件
+  radioChange(e) {
+    console.log('单选:', e.detail.value)
   },
   //删除地址
   deleteAddress: function (e) {
@@ -38,7 +64,7 @@ Page({
       success(res) {
         if (res.confirm) {
           wx.showToast({
-            icon:'loading',
+            icon: 'loading',
             title: '正在删除',
           })
         } else if (res.cancel) {
@@ -60,7 +86,6 @@ Page({
         url: '../addAddress/index?type=' + type,
       })
     }
-
   },
   //点击寄件人
   select: function () {
@@ -156,6 +181,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.type)
     var that = this;
     wx.getSystemInfo({
       success: function (res) {
@@ -165,6 +191,9 @@ Page({
         })
       }
     });
+    this.setData({
+      currtab: options.type
+    })
     this.select()
   },
 

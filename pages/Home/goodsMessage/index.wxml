@@ -14,54 +14,57 @@
 		<view class="col-3 grid margin-top-sm">
 			<view wx:for="{{goodsType}}" wx:key="{{index}}">
 				<view class="text-center padding-tb-sm">
-					<view bindtap="ChooseCheckbox" data-value="{{item.value}}" class="cu-btn {{item.checked?'line-red':'line-gray'}} round">{{item.name}}</view>
+					<view bindtap="ChooseCheckbox" data-id="{{item.id}}" class="padding-tb-xs margin-lr-xs {{selectId == item.id?'isSelect':'noSelect'}} round">{{item.name}}</view>
 				</view>
 			</view>
+		</view>
+		<view wx:if="{{isshow}}" class="flex-sub bg-gray padding-sm">
+			<input maxlength="10" placeholder="可输入物品名称，最多10字哦~"></input>
 		</view>
 	</view>
 
 	<view class="margin-sm padding bg-white" style="border-radius:7px">
-		<view class="flex justify-between padding-bottom" style="border-bottom:1px solid #eee">
+		<view class="flex justify-between padding-bottom align-center" style="border-bottom:1px solid #eee">
 			<text>物品数量</text>
-			<view>
-				<view class="cu-tag margin-right-sm" bindtap="addAndReduce" data-type="number" data-item="reduce">
+			<view class="flex align-center">
+				<view bindtap="addAndReduce" data-type="number" data-item="reduce">
 					<text class="cuIcon-move"></text>
 				</view>
-				<view class="cu-tag1">
-					<input data-type="number" type="number" style="width:40rpx" maxlength="2"  bindinput="numberinput" value="{{goodNumber}}"></input>
+				<view class="flex align-center bg-gray padding-tb-xs padding-lr-sm margin-lr-sm radius">
+					<input data-type="number" type="number" style="width:40rpx" maxlength="2" bindblur="numberinput" value="{{goodNumber}}"></input>
 					<text>件</text>
 				</view>
-				<view bindtap="addAndReduce" data-type="number" data-item="add" class="cu-tag1 margin-left-sm">
+				<view bindtap="addAndReduce" data-type="number" data-item="add">
 					<text  class="cuIcon-add"></text>
 				</view>
 			</view>
 		</view>
-		<view class="flex justify-between padding-tb" style="border-bottom:1px solid #eee">
+		<view class="flex justify-between padding-tb align-center" style="border-bottom:1px solid #eee">
 			<text>预估重量</text>
-			<view>
-				<view class="cu-tag margin-right-sm" bindtap="addAndReduce" data-type="weight" data-item="reduce">
+			<view class="flex align-center">
+				<view bindtap="addAndReduce" data-type="weight" data-item="reduce">
 					<text class="cuIcon-move"></text>
 				</view>
-				<view class="cu-tag1">
-					<input data-type="weight" type="number" style="width:40rpx" maxlength="2"  bindinput="numberinput" value="{{estimatedWeight}}"></input>
+				<view class="flex align-center bg-gray padding-tb-xs padding-lr-sm margin-lr-sm radius">
+					<input data-type="weight" type="number" style="width:40rpx" maxlength="2" bindblur="numberinput" value="{{estimatedWeight}}"></input>
 					<text>kg</text>
 				</view>
-				<view bindtap="addAndReduce" data-type="weight" data-item="add" class="cu-tag1 margin-left-sm">
+				<view bindtap="addAndReduce" data-type="weight" data-item="add">
 					<text  class="cuIcon-add"></text>
 				</view>
 			</view>
 		</view>
-		<view class="flex justify-between padding-top">
+		<view class="flex justify-between padding-top align-center">
 			<text>预估体积</text>
-			<view>
-				<view class="cu-tag margin-right-sm" bindtap="addAndReduce" data-type="volume" data-item="reduce">
+			<view class="flex align-center">
+				<view bindtap="addAndReduce" data-type="volume" data-item="reduce">
 					<text class="cuIcon-move"></text>
 				</view>
-				<view class="cu-tag1">
-					<input data-type="volume" type="number" style="width:40rpx" maxlength="2"  bindinput="numberinput" value="{{estimatedVolume}}"></input>
-					<text>m³</text>
+				<view class="flex align-center bg-gray padding-tb-xs padding-lr-sm margin-lr-sm radius">
+					<input data-type="volume" type="number" style="width:40rpx" maxlength="2" bindblur="numberinput" value="{{estimatedVolume}}"></input>
+					<text class="text-black">m³</text>
 				</view>
-				<view bindtap="addAndReduce" data-type="volume" data-item="add" class="cu-tag1 margin-left-sm">
+				<view bindtap="addAndReduce" data-type="volume" data-item="add">
 					<text  class="cuIcon-add"></text>
 				</view>
 			</view>
@@ -94,5 +97,11 @@
 	<view class='cu-tabbar-height'></view>
 </scroll-view>
 <view class="cu-bar foot tar bg-white">
-	<button class="cu-btn bg-red round">确定</button>
+	<button class="cu-btn bg-red round" bindtap="confirm">确定</button>
 </view>
+
+<button class="kf_button" open-type="contact" session-from="weapp">
+	<view class="flex justify-center align-center" style="height:100%">
+		<image class="kf_image" mode="aspectFit" src="https://m.qpic.cn/psc?/V13054I60qvHvi/ruAMsa53pVQWN7FLK88i5ojMOq9OUTcdXQteDmooN9qifoMkbvp7EXR3jwq8vzzcie98mF88ELtIIElBwrfMfIUBgM6JcroaSNR3*Jr*7tg!/mnull&bo=MAAwADAAMAADCSw!&rf=photolist&t=5"></image>
+	</view>
+</button>

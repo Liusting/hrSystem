@@ -1,25 +1,24 @@
 {
   "pages": [
-    "pages/Home/goodsMessage/index",
-    "pages/Home/checkOrder/index",
+
     "pages/index/index",
     "pages/My/coupon/index",
+    "pages/Home/addAddress/index",
+    "pages/Home/addressList/index",
+    "pages/Home/checkOrder/index",
     "pages/Home/serviceAddress/index",
     "pages/Order/orderDetail/index",
     "pages/test/test",
     "pages/My/invite/index",
-    "pages/Home/addressList/index",
     "pages/Home/index",
- 
+    "pages/Home/goodsMessage/index",
     "pages/Login/index",
-    "pages/Home/addAddress/index",
     "pages/Order/index",
     "pages/My/joinOur/index",
     "pages/Order/receipt/index",
     "pages/Order/expressDetail/index",
     "pages/My/index",
     "pages/Home/identity/index",
-
     "pages/My/advice/index",
     "pages/My/aboutOur/index"
   ],
