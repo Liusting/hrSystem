@@ -81,7 +81,7 @@
 }
 
 .coupon-pop-up .mid-coupons {
-  background-color: #E41B3F;
+  background-color: #e16531;
   border-radius: 7px;
   box-sizing: border-box;
 }

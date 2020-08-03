@@ -21,10 +21,11 @@ Page({
       }
     ],
     couponList: [],
-    flag:true,
-    modalName:''
+    flag: true,
+    modalName: '',
+    idIndex: ''
   },
-  gotoIndex:function(e){
+  gotoIndex: function (e) {
     wx.navigateTo({
       url: '../../index/index',
     })
@@ -40,14 +41,23 @@ Page({
     })
   },
   // 优惠券兑换
-  exchangeCoupon:function(){
+  exchangeCoupon: function () {
     wx.navigateTo({
       url: '../exchangeCoupon/index',
     })
   },
-  explain:function(){
+  explain: function (e) {
+    console.log(e.currentTarget.dataset.id);
+    let id = e.currentTarget.dataset.id;
+    let item = this.data.couponList;
+    for (let i = 0; i < item.length; i++) {
+      if(item[i].id == id){
+        item[i].checked = !item[i].checked
+      }
+    }
+    console.log(item);
     this.setData({
-      flag:!this.data.flag
+      couponList:item
     })
   },
   /**
@@ -57,10 +67,10 @@ Page({
     var that = this;
     wx.request({
       url: 'http://mock-api.com/PKeZpPz0.mock/couponTest',
-      method:'get',
-      success:function(res){
+      method: 'get',
+      success: function (res) {
         that.setData({
-          couponList:res.data
+          couponList: res.data
         })
         console.log(res);
       }
@@ -113,43 +123,43 @@ Page({
     this.setData({
       currtab: e.detail.current
     })
-    this.orderShow()
+    // this.orderShow()
   },
-  orderShow: function () {
-    let that = this
-    switch (this.data.currtab) {
-      case 0:
-        that.allShow()
-        break
-      case 1:
-        that.waitPayShow()
-        break
-      case 2:
-        that.waitSendShow()
-        break
-    }
-  },
-  // 未使用
-  allShow: function () {
-    var that = this;
-    this.setData({
-      allOrder: that.allOrder
-    })
-  },
-  // 已使用
-  waitPayShow: function () {
-    var that = this;
-    this.setData({
-      waitPayOrder: that.waitPayOrder
-    })
-  },
-  // 已过期
-  waitSendShow: function () {
-    var that = this;
-    this.setData({
-      waitSendOrder: that.waitSendOrder
-    })
-  },
+  // orderShow: function () {
+  //   let that = this
+  //   switch (this.data.currtab) {
+  //     case 0:
+  //       that.allShow()
+  //       break
+  //     case 1:
+  //       that.waitPayShow()
+  //       break
+  //     case 2:
+  //       that.waitSendShow()
+  //       break
+  //   }
+  // },
+  // // 未使用
+  // allShow: function () {
+  //   var that = this;
+  //   this.setData({
+  //     allOrder: that.allOrder
+  //   })
+  // },
+  // // 已使用
+  // waitPayShow: function () {
+  //   var that = this;
+  //   this.setData({
+  //     waitPayOrder: that.waitPayOrder
+  //   })
+  // },
+  // // 已过期
+  // waitSendShow: function () {
+  //   var that = this;
+  //   this.setData({
+  //     waitSendOrder: that.waitSendOrder
+  //   })
+  // },
 
   // 点击立即使用
   cupon_use: function (e) {

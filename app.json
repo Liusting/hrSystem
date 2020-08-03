@@ -1,9 +1,9 @@
 {
   "pages": [
+
+    "pages/index/index",
     "pages/My/coupon/index",
     "pages/Home/checkOrder/index",
-    "pages/index/index",
-
     "pages/Home/addAddress/index",
     "pages/Home/addressList/index",
     "pages/Home/goodsMessage/index",
@@ -12,7 +12,6 @@
     "pages/test/test",
     "pages/My/invite/index",
     "pages/Home/index",
- 
     "pages/Login/index",
     "pages/Order/index",
     "pages/My/joinOur/index",

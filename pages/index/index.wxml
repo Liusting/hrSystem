@@ -37,33 +37,33 @@
 	<view class="coupon-pop-up" catchtouchmove="onPreventTouchMove" animation="{{animationData}}">
 		<view class="body">
 			<view class="mid-coupons padding">
-					<scroll-view scroll-y="true" style="height:379px">
-						<block wx:for="{{couponArr}}" for-index="index" wx:key="index">
-							<view class="margin-tb-sm">
-								<view class="bg-white flex padding-sm" style="border-radius:7px">
-									<view>
-										<image style="height:100rpx;width:100rpx" src="https://img.alicdn.com/imgextra/i4/1073981443/O1CN01KqpPDj1MWw875IBq2_!!1073981443.png"></image>
+				<scroll-view scroll-y="true" style="height:379px">
+					<block wx:for="{{couponArr}}" for-index="index" wx:key="index">
+						<view class="margin-tb-sm">
+							<view class="bg-white flex padding-sm" style="border-radius:7px">
+								<view>
+									<image style="height:100rpx;width:100rpx" src="https://img.alicdn.com/imgextra/i4/1073981443/O1CN01KqpPDj1MWw875IBq2_!!1073981443.png"></image>
+								</view>
+								<view class="flex justify-between align-center" style="width:100%">
+									<view class="margin-left">
+										<view class="text-bold text-lg">{{item.CouponName}}</view>
+										<view class="text-gray text-sm">{{item.CouponTypeName}}</view>
+										<view class="text-gray text-sm">自领取后7日内有效</view>
 									</view>
-									<view class="flex justify-between align-center" style="width:100%">
-										<view class="margin-left">
-											<view class="text-bold text-lg">{{item.CouponName}}</view>
-											<view class="text-gray text-sm">{{item.CouponTypeName}}</view>
-											<view class="text-gray text-sm">自领取后7日内有效</view>
+									<view class="text-center">
+										<view><text class="text-red text-bold text-xl text-price">{{item.CouponMoney}}</text></view>
+										<view bindtap="getCoupons" data-index="{{index}}" wx:if="{{!item.HasItBeenClaimed}}">
+											<text class="cu-tag round bg-redOrange">立即领取</text>
 										</view>
-										<view class="text-center">
-											<view><text class="text-red text-bold text-xl text-price">{{item.CouponMoney}}</text></view>
-											<view bindtap="getCoupons" data-index="{{index}}" wx:if="{{!item.HasItBeenClaimed}}">
-												<text class="cu-tag round bg-redOrange">立即领取</text>
-											</view>
-											<view bindtap="alreadyReceived" wx:if="{{item.HasItBeenClaimed}}">
-												<text class="cu-tag round bg-gray">领取成功</text>
-											</view>
+										<view bindtap="alreadyReceived" wx:if="{{item.HasItBeenClaimed}}">
+											<text class="cu-tag round bg-gray">领取成功</text>
 										</view>
 									</view>
 								</view>
 							</view>
-						</block>
-					</scroll-view>
+						</view>
+					</block>
+				</scroll-view>
 				<view class="flex justify-center padding-top">
 					<button bindtap="getAllCoupons" class="round bg-yellow cu-btn">全部领取</button>
 				</view>

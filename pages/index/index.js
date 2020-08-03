@@ -1,6 +1,6 @@
 Page({
   data: {
-    PageCur: 'Home',
+    PageCur: 'Order',
     couponArr: [{
         CouponName: '新人满减优惠券',
         CouponTypeName: '满30元可用',
@@ -34,11 +34,11 @@ Page({
     isShowCouponPopUp: false
   },
   onLoad: function () {
-    // let that = this;
+    let that = this;
     // setTimeout(() => {
     //   // 先开启优惠劵弹窗
     //   that.setData({
-    //     // isShowCouponPopUp: true
+    //     isShowCouponPopUp: true
     //   })
     //   // 设置优惠劵弹窗打开动画
     //   var animation = wx.createAnimation({

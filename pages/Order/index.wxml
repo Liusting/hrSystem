@@ -5,6 +5,15 @@
 		</view>
 	</view>
 </view>
+<!-- <view class="cu-bar search bg-white">
+	<view class="search-form round">
+		<text class="cuIcon-search"></text>
+		<input type="text" placeholder="订单编号、姓名" confirm-type="search"></input>
+	</view>
+	<view class="action">
+		<button class="cu-btn bg-green shadow-blur round">搜索</button>
+	</view>
+</view> -->
 <view class="bg-white " style="border-top:1px solid #eee">
 	<view class="flex cu-tabbar-height text-center text-lg">
 		<view class="flex cu-tabbar-heightz justify-center align-center  flex-sub {{currtab == item.index ? 'text-redOrange on' : ''}}" wx:for="{{swipertab}}" wx:key bindtap="tabSwitch" data-current="{{item.index}}">
@@ -78,7 +87,7 @@
 				</view>
 				<view class="flex align-center justify-end margin-top-sm">
 					<view style="width:68px" class="cu-tag line-gray round">
-						<button bindtap="cancelOrder"  class="bg-white cu-btn1 text-gray">取消订单</button>
+						<button bindtap="cancelOrder" class="bg-white cu-btn1 text-gray">取消订单</button>
 					</view>
 					<view style="width:68px" class="cu-tag line-redOrange round">
 						<button bindtap="gotoReceipt" class="bg-white text-redOrange cu-btn1">电子存单</button>
