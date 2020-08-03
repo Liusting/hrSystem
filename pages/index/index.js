@@ -114,7 +114,7 @@ Page({
   //分享转发
   onShareAppMessage(res) {
     return {
-      title: '流浪者速递',
+      title: '流浪者速递 快到您无法想象',
       imageUrl: 'http://img1.imgtn.bdimg.com/it/u=3922290090,3177876335&fm=26&gp=0.jpg',
       path: '/pages/index/index'
     }
@@ -122,9 +122,9 @@ Page({
   //分享朋友圈
   onShareTimeline: function () {
     return {
-      title: '流浪者速递',
+      title: '流浪者速递 快到您无法想象',
       query: '',
-      imageUrl: ''
+      imageUrl: 'http://img1.imgtn.bdimg.com/it/u=3922290090,3177876335&fm=26&gp=0.jpg'
     }
   },
   //小程序收藏

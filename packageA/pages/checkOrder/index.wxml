@@ -80,9 +80,7 @@
 		<view class="flex justify-between align-center  padding">
 			<view class="flex align-center"><text>物品信息</text><text class="tag-round margin-left-sm bg-red ">必填</text></view>
 			<view bindtap="goodsMessage">
-				<text wx:if="{{goodsData.isgoodsData}}">请填写</text>
-				<text wx:else>{{goodsData.goodsName}}，{{goodsData.goodNumber}}件，{{goodsData.estimatedWeight}}kg，{{goodsData.estimatedVolume}}m³</text>
-				<text class="cuIcon-right"></text>
+				<text>请填写</text><text class="cuIcon-right"></text>
 			</view>
 		</view>
 	</view>
@@ -231,7 +229,7 @@
 	<view class="cu-dialog1 bg-white">
 		<view class="">
 			<view class=" bg-white flex justify-center padding-top">
-				<image style="height:200rpx;width:200rpx" mode="aspectFit" src="https://m.qpic.cn/psc?/V13054I60qvHvi/ruAMsa53pVQWN7FLK88i5hav34xrylrnB7AO0Eg4K0eKhi*c4OLhXFj3rm*7QdGlv3avCMeNJWBzJiDLhVmwGGJhRpcS4ZVYI.61UE1cNnE!/mnull&bo=gACAAIAAgAADCSw!&rf=photolist&t=5"></image>
+				<image style="height:200rpx;width:200rpx" mode="aspectFit" src="https://m.qpic.cn/psc?/V13054I60qvHvi/IuPP.iXwoDzL23w4nRtQcj37wwllYyLh9l4GaDbXjFbBgXI5AdnpGMpiSXjoxpIN.oYW.t6k..6U6Podnhywbw!!/b&bo=OAQ4BAAAAAADByI!&rf=viewer_4"></image>
 			</view>
 			<view class="flex bg-white justify-center padding-bottom">
 				<view class="content">支付成功</view>
@@ -328,14 +326,14 @@
 								<view class=" justify-end flex">
 									<view class="box">
 										<view class="box-con">
-											<view class="box-text bg-cyan">满减券</view>
+											<view class="box-text bg-red">满减券</view>
 										</view>
 									</view>​
 								</view>
 								<view class="padding text-center">
 									<text class="text-price text-xxl text-bold text-red">10</text>
-									<view class="text-gray">满100元可用</view>
-									<view bindtap="hideModal" class="cu-btn bg-redOrange round sm margin-top-xs">立即使用</view>
+									<view class="text-gray"> 满100元可用</view>
+									<view class="cu-tag bg-blue round margin-top-xs">立即使用</view>
 								</view>
 								<view>
 								</view>
@@ -389,22 +387,24 @@
 			<view></view>
 		</view>
 		<scroll-view class="bg-white" scroll-y style="height:600rpx">
-			<view class="padding-sm" wx:for="{{typeList}}" wx:key="{{item.id}}">
-				<label class="flex justify-between align-center flex-sub">
-					<view class="text-left flex align-center">
-						<view>
-							<image mode="aspectFit" style="width:50rpx;height:50rpx" src="{{item.imageUrl}}"></image>
+			<radio-group class="block">
+				<view class="padding-sm" wx:for="{{typeList}}" wx:key="{{item.id}}">
+					<label class="flex justify-between align-center flex-sub">
+						<view class="text-left flex align-center">
+							<view>
+								<image mode="aspectFit" style="width:50rpx;height:50rpx" src="{{item.imageUrl}}"></image>
+							</view>
+							<view class="margin-left-sm">
+								<view class="text-lg">{{item.name}}</view>
+								<view class="text-sm text-gray">{{item.describe}}</view>
+							</view>
 						</view>
-						<view class="margin-left-sm">
-							<view class="text-lg">{{item.name}}</view>
-							<view class="text-sm text-gray">{{item.describe}}</view>
+						<view class="text-xxl">
+							<text bindtap="ChooseCheckbox" data-id="{{item.id}}" class="{{item.checked?'cuIcon-roundcheckfill text-redOrange':'cuIcon-round text-gray'}}"></text>
 						</view>
-					</view>
-					<view class="text-xxl">
-						<text bindtap="ChooseCheckbox" data-id="{{item.id}}" class="{{item.checked?'cuIcon-roundcheckfill text-redOrange':'cuIcon-round text-gray'}}"></text>
-					</view>
-				</label>
-			</view>
+					</label>
+				</view>
+			</radio-group>
 		</scroll-view>
 		<view bindtap="hideModal" class="cu-bar padding foot tar bg-white">
 			<view>服务价格：<text class="text-red text-price text-bold text-xl">299.00</text></view>

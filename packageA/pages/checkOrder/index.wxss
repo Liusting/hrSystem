@@ -1,0 +1,98 @@
+@import "/colorui/coupon.wxss";
+.kf_button{
+  padding: 0px 0px;
+  background-color: #e16531;
+  width: 100rpx;
+  height: 100rpx;
+  left:80%;
+  border-radius: 50%;
+  bottom: 230rpx;
+  position: fixed;
+  z-index: 100;
+  box-shadow:  #e16531;
+ }
+.kf_button:not([size='mini']){
+  width:  100rpx;
+}
+ .kf_image{
+  z-index: 9999;
+  width: 60rpx;
+  height: 60rpx;
+ }
+ .nickname_placeholder, .nickname_input {
+  text-align: right;
+}
+.cu-dialog1 {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: auto;
+	margin-right: auto;
+	width: 450rpx;
+	max-width: 100%;
+	background-color: #f8f8f8;
+	border-radius: 10rpx;
+	overflow: hidden;
+}
+
+
+.rich-text-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+}
+
+.cu-btn1 {
+position: relative;
+  border: 0rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  height: 64rpx;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  overflow: visible;
+  margin-left: initial;
+  transform: translate(0rpx, 0rpx);
+  margin-right: initial;
+
+  }
+  button:not([size='mini']) {
+    width: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    }
+    radio {
+      position: relative;
+    }
+    radio::before{
+      font-family: "cuIcon";
+      content: "\e645";
+      position: absolute;
+      color: var(--white) !important;
+      top: 70%;
+      margin-top: -6px;
+      right: 3px;
+      font-size: 26rpx;
+      line-height: 4px;
+      pointer-events: none;
+      transform: scale(1, 1);
+      transition: all 0.3s ease-in-out 0s;
+      z-index: 9;
+    }
+    /* 未选中的radio */
+    radio .wx-radio-input{
+      margin: 0;
+      width: 34rpx;
+      height: 34rpx;
+    }
+    radio.radio::before,
+    radio .wx-radio-input::before,
+    radio.radio::before {
+      display: none;
+    
+    }

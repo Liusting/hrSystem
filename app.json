@@ -1,16 +1,18 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/My/coupon/index",
+    "pages/Home/checkOrder/index",
+    "pages/index/index",
+
     "pages/Home/addAddress/index",
     "pages/Home/addressList/index",
-    "pages/Home/checkOrder/index",
+    "pages/Home/goodsMessage/index",
     "pages/Home/serviceAddress/index",
     "pages/Order/orderDetail/index",
     "pages/test/test",
     "pages/My/invite/index",
     "pages/Home/index",
-    "pages/Home/goodsMessage/index",
+ 
     "pages/Login/index",
     "pages/Order/index",
     "pages/My/joinOur/index",
@@ -25,7 +27,7 @@
       "root": "packageA",
       "name": "coupon",
       "pages": [
-        "pages/test/index"
+        "pages/checkOrder/index"
       ]
     },
     {
@@ -36,12 +38,6 @@
       ]
     }
   ],
-  "preloadRule": {
-    "pages/index/index": {
-      "network": "all",
-      "packages": ["packageA"]
-    }
-  },
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示"

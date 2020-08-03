@@ -14,12 +14,12 @@
 		<view class="col-3 grid margin-top-sm">
 			<view wx:for="{{goodsType}}" wx:key="{{index}}">
 				<view class="text-center padding-tb-sm">
-					<view bindtap="ChooseCheckbox" data-id="{{item.id}}" class="padding-tb-xs margin-lr-xs {{selectId == item.id?'isSelect':'noSelect'}} round">{{item.name}}</view>
+					<view bindtap="ChooseCheckbox" data-name="{{item.name}}" data-id="{{item.id}}" class="padding-tb-xs margin-lr-xs {{selectId == item.id?'isSelect':'noSelect'}} round">{{item.name}}</view>
 				</view>
 			</view>
 		</view>
 		<view wx:if="{{isshow}}" class="flex-sub bg-gray padding-sm">
-			<input maxlength="10" placeholder="可输入物品名称，最多10字哦~"></input>
+			<input maxlength="10" placeholder="可输入物品名称，最多10字哦~" bindconfirm="otherInput"></input>
 		</view>
 	</view>
 

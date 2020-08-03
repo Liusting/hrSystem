@@ -43,10 +43,34 @@ Page({
     goodNumber: 1,
     estimatedWeight: 1,
     estimatedVolume: 1,
-    isshow:false
+    isshow: false,
+    goodsName: ''
   },
   //点击确认
-  confirm:function(){
+  confirm: function () {
+    console.log(this.data.goodsName)
+    console.log(this.data.estimatedVolume)
+    console.log(this.data.estimatedWeight)
+    console.log(this.data.goodNumber)
+    if (this.data.goodsName == "") {
+      wx.showToast({
+        icon: 'none',
+        title: '请输入物品名称'
+      })
+    }else{
+      var pages = getCurrentPages();
+      var prevPage = pages[pages.length - 2]; //上一个页面
+      //直接调用上一个页面的setData()方法，把数据存到上一个页面中去
+      prevPage.setData({
+        goodsData: {
+          goodsName: this.data.goodsName,
+          estimatedVolume: this.data.estimatedVolume,
+          estimatedWeight: this.data.estimatedWeight,
+          goodNumber: this.data.goodNumber,
+          isgoodsData:false
+        }
+      })
+    }
     wx.navigateBack({
       delta: 1,
     })
@@ -192,18 +216,29 @@ Page({
         break;
     }
   },
+  //其他物品输入
+  otherInput: function (e) {
+    this.setData({
+      goodsName: e.detail.value
+    })
+    console.log(e.detail.value);
+  },
   //物品类型选择
   ChooseCheckbox(e) {
+    console.log(e);
     let id = e.currentTarget.dataset.id;
-    if(id == 8){
+    let name = e.currentTarget.dataset.name;
+    if (id == 8) {
       this.setData({
-        isshow:true,
-        selectId: id
+        isshow: true,
+        selectId: id,
+        goodsName: ''
       })
-    }else{
+    } else {
       this.setData({
-        isshow:false,
-        selectId: id
+        isshow: false,
+        selectId: id,
+        goodsName: name
       })
     }
   },

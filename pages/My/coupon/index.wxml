@@ -24,18 +24,18 @@
 				<text>没有可用优惠券/(ㄒoㄒ)/~~</text>
 			</view> -->
 			<view class="padding text-gray flex justify-center">
-				6张可用优惠券
+				{{couponList.length}}张可用优惠券
 			</view>
-			<view wx:for="{{5}}" wx:key="ffff">
+			<view wx:for="{{couponList}}" wx:key="ffff">
 				<view class="margin-sm">
 					<view class="wrapper">
 						<view class="content1 ">
-							<view class='padding '>
+							<view class='padding-sm'>
 								<view class="text-xl text-bold ">
-									新人满减券
+									{{item.name}}
 								</view>
 								<view class="text-sm padding-top-xs text-gray">
-									适用时间：2020/09/09-2020/09/29
+									适用时间：{{item.startTime}}-{{item.endTime}}
 								</view>
 								<view class="text-sm flex justify-between padding-top-xs text-gray">
 									<view>使用说明</view>
@@ -44,8 +44,7 @@
 									</view>
 								</view>
 								<view class="bg-white text-sm text-gray" wx:if="{{!flag}}" style="border-radius:7px">
-									<view>1.优惠券领取后7日内使用</view>
-									<view>2.满100可用</view>
+									<view>{{item.explain}}</view>
 								</view>
 							</view>
 						</view>
@@ -59,9 +58,11 @@
 										</view>
 									</view>​
 								</view>
-								<view class="padding text-center">
-									<text class="text-price text-xxl text-bold text-red">10</text>
-									<view class="text-gray"> 满100元可用</view>
+								<view class="padding-xs text-center">
+									<view wx:if="{{item.type==1}}" class="text-price text-xxl text-bold text-red">{{item.reduceMoney}}</view>
+									<view wx:if="{{item.type==2}}" class="text-price text-xxl text-bold text-red">{{item.reduceMoney}}</view>
+									<view wx:if="{{item.type==3}}" class="text-xxl text-bold text-red">{{item.reduceMoney}}</view>
+									<view wx:if="{{item.type==1}}" class="text-gray text-sm">满{{item.condition}}元可用</view>
 									<view bindtap="gotoIndex" class="cu-tag bg-blue round margin-top-xs">立即使用</view>
 								</view>
 								<view>
@@ -78,7 +79,7 @@
 	<!-- 已使用 -->
 	<swiper-item>
 		<scroll-view class="hot-box" scroll-y="true" style="height:{{deviceH-CustomBar-55}}px">
-			<view  class="flex justify-center align-center" style="margin-top:200rpx">
+			<view class="flex justify-center align-center" style="margin-top:200rpx">
 				<view>
 					<image style="height:300rpx;width:300rpx" mode="aspectFit" src="https://m.qpic.cn/psc?/V13054I60qvHvi/IuPP.iXwoDzL23w4nRtQcmRp9UHAwpuXACm4QLYj.A01gNZH9qH6nMA6NH*VkIomC4Pp31LRXVw5QhBFoZMmtg!!/mnull&bo=0QCAANEAgAADCSw!&rf=photolist&t=5"></image>
 					<view class="flex justify-center text-gray margin-top">

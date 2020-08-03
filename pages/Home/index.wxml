@@ -71,6 +71,6 @@
 </view>
 
 
-<view class="flex justify-center">
+<!-- <view class="flex justify-center">
 	<button class="cu-btn round bg-redOrange lg shadow" bindtap="test">测试分包</button>
-</view>
+</view> -->

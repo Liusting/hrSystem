@@ -20,7 +20,7 @@ Page({
         index: 1
       }
     ],
-    allOrder: [],
+    couponList: [],
     flag:true,
     modalName:''
   },
@@ -55,25 +55,16 @@ Page({
    */
   onLoad: function (e) {
     var that = this;
-    // http.getUserCouponList({
-    //   data: {
-    //     user_id: 3
-    //   },
-    //   success(res) {
-    //     that.setData({
-    //       allOrder: res.data.userCouponList
-    //     })
-    //   }
-    // })
-    // wx.request({
-    //   url: 'http://mock-api.com/PKeZpPz0.mock/coupon',
-    //   method:'get',
-    //   success:function(res){
-    //     that.setData({
-    //       allOrder:res.data
-    //     })
-    //   }
-    // })
+    wx.request({
+      url: 'http://mock-api.com/PKeZpPz0.mock/couponTest',
+      method:'get',
+      success:function(res){
+        that.setData({
+          couponList:res.data
+        })
+        console.log(res);
+      }
+    })
 
     wx.getSystemInfo({
       success: function (res) {
